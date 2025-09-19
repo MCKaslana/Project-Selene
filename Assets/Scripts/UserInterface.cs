@@ -1,16 +1,21 @@
 using UnityEngine;
+using TMPro;
 
-public class UserInterface : MonoBehaviour
+public class UserInterface : Singleton<UserInterface>
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private TextMeshProUGUI _scoreText;
+    [SerializeField] private TextMeshProUGUI _comboText;
+    [SerializeField] private TextMeshProUGUI _missCountText;
+
+    private void Start()
     {
-        
+        UpdateInterface(0, 0, 0);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateInterface(int score, int combo, int missCount)
     {
-        
+        _scoreText.text = $"Score : {score}";
+        _comboText.text = $"Combo : {combo}";
+        _missCountText.text = $"Misses : <{missCount}>";
     }
 }
