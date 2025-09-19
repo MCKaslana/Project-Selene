@@ -6,7 +6,7 @@ public class UserInterface : Singleton<UserInterface>
     [SerializeField] private TextMeshProUGUI _scoreText;
     [SerializeField] private TextMeshProUGUI _comboText;
     [SerializeField] private TextMeshProUGUI _missCountText;
-
+        
     private void Start()
     {
         UpdateInterface(0, 0, 0);
