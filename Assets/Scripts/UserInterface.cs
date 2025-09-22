@@ -14,8 +14,8 @@ public class UserInterface : Singleton<UserInterface>
 
     public void UpdateInterface(int score, int combo, int missCount)
     {
-        _scoreText.text = $"Score : {score}";
-        _comboText.text = $"Combo : {combo}";
-        _missCountText.text = $"Misses : <{missCount}>";
+        _scoreText.text = $"Score : <| {score} |>";
+        _comboText.text = $"Combo : > {combo} <";
+        _missCountText.text = $"Misses : < {missCount} >";
     }
 }

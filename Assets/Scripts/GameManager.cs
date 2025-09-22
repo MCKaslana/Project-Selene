@@ -9,7 +9,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private float songOffset = 0f;
 
     private float songStartTime;
-    private List<float> noteTimings = new List<float>();
+    private List<float> noteTimings = new();
     private int nextNoteIndex = 0;
 
     [SerializeField] private NoteSpawner noteSpawner;
@@ -54,30 +54,34 @@ public class GameManager : Singleton<GameManager>
     void LoadBeatmap()
     {
         string[] lines = beatmap.text.Split('\n');
+
+        maxCombo = beatmap.text.Length;
+
         foreach (string line in lines)
         {
-            if (float.TryParse(line, out float t))
-                noteTimings.Add(t);
+            if (float.TryParse(line, out float noteTiming))
+                noteTimings.Add(noteTiming);
         }
     }
 
-    public void RegisterHit(string judgment)
+    public void RegisterHit(Judgement judgment)
     {
         switch (judgment)
         {
-            case "Perfect":
+            case Judgement.Perfect:
+                score += 4000;
+                combo++;
+                break;
+            case Judgement.Great:
+                score += 2000;
+                combo++;
+                break;
+            case Judgement.Good:
                 score += 1000;
                 combo++;
                 break;
-            case "Great":
-                score += 500;
-                combo++;
-                break;
-            case "Good":
-                score += 300;
-                combo++;
-                break;
-            case "Miss":
+            case Judgement.Miss:
+                score -= 1000;
                 combo = 0;
                 misses++;
                 break;
