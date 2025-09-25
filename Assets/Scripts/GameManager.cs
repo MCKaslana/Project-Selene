@@ -4,21 +4,21 @@ using System.Collections.Generic;
 public class GameManager : Singleton<GameManager>
 {
     [Header("Song Settings")]
-    [SerializeField] private AudioSource musicSource;
-    [SerializeField] private TextAsset beatmap;
-    [SerializeField] private float songOffset = 0f;
+    [SerializeField] private AudioSource _musicSource;
+    [SerializeField] private TextAsset _beatmap;
+    [SerializeField] private float _songOffset = 0f;
 
-    private float songStartTime;
+    private float _songStartTime;
     private List<float> noteTimings = new();
-    private int nextNoteIndex = 0;
+    private int _nextNoteIndex = 0;
 
-    [SerializeField] private NoteSpawner noteSpawner;
+    [SerializeField] private NoteSpawner _noteSpawner;
 
     [Header("Game Stats")]
-    public int score { get; private set; }
-    public int combo { get; private set; }
-    public int maxCombo { get; private set; }
-    public int misses { get; private set; }
+    public int Score { get; private set; }
+    public int Combo { get; private set; }
+    public int MaxCombo { get; private set; }
+    public int MissCount { get; private set; }
 
     void Start()
     {
@@ -28,34 +28,34 @@ public class GameManager : Singleton<GameManager>
 
     void Update()
     {
-        if (musicSource.isPlaying && nextNoteIndex < noteTimings.Count)
+        if (_musicSource.isPlaying && _nextNoteIndex < noteTimings.Count)
         {
             float songTime = GetSongTime();
 
-            if (songTime >= noteTimings[nextNoteIndex] - noteSpawner.NoteTravelTime)
+            if (songTime >= noteTimings[_nextNoteIndex] - _noteSpawner.NoteTravelTime)
             {
-                noteSpawner.SpawnNote(noteTimings[nextNoteIndex]);
-                nextNoteIndex++;
+                _noteSpawner.SpawnNote(noteTimings[_nextNoteIndex]);
+                _nextNoteIndex++;
             }
         }
     }
 
     public float GetSongTime()
     {
-        return (Time.time - songStartTime) + songOffset;
+        return (Time.time - _songStartTime) + _songOffset;
     }
 
     void StartSong()
     {
-        songStartTime = Time.time;
-        musicSource.Play();
+        _songStartTime = Time.time;
+        _musicSource.Play();
     }
 
     void LoadBeatmap()
     {
-        string[] lines = beatmap.text.Split('\n');
+        string[] lines = _beatmap.text.Split('\n');
 
-        maxCombo = beatmap.text.Length;
+        MaxCombo = _beatmap.text.Length;
 
         foreach (string line in lines)
         {
@@ -69,27 +69,27 @@ public class GameManager : Singleton<GameManager>
         switch (judgment)
         {
             case Judgement.Perfect:
-                score += 4000;
-                combo++;
+                Score += 4000;
+                Combo++;
                 break;
             case Judgement.Great:
-                score += 2000;
-                combo++;
+                Score += 2000;
+                Combo++;
                 break;
             case Judgement.Good:
-                score += 1000;
-                combo++;
+                Score += 1000;
+                Combo++;
                 break;
             case Judgement.Miss:
-                score -= 1000;
-                combo = 0;
-                misses++;
+                Score -= 1000;
+                Combo = 0;
+                MissCount++;
                 break;
         }
 
-        if (combo > maxCombo)
-            maxCombo = combo;
+        if (Combo > MaxCombo)
+            MaxCombo = Combo;
 
-        UserInterface.Instance.UpdateInterface(score, combo, misses);
+        UserInterface.Instance.UpdateInterface(Score, Combo, MissCount);
     }
 }

@@ -6,20 +6,19 @@ public class NoteControl : MonoBehaviour
     private static readonly List<NoteControl> activeNotes = new List<NoteControl>();
     public static IReadOnlyList<NoteControl> ActiveNotes => activeNotes;
 
-    private float targetTime;
-    private Vector3 startPos;
-    private Vector3 targetPos;
-    private float travelTime;
-    private bool hit = false;
+    private float _targetTime;
+    private Vector3 _startPos;
+    private Vector3 _targetPos;
+    private float _travelTime;
+    private bool _hit = false;
 
     public void Initialize(float targetTime, Vector3 targetPos, float travelTime)
     {
-        this.targetTime = targetTime;
-        this.targetPos = targetPos;
-        this.travelTime = travelTime;
-        this.startPos = transform.position;
+        _targetTime = targetTime;
+        _targetPos = targetPos;
+        _travelTime = travelTime;
+        _startPos = transform.position;
 
-        // register in active list
         if (!activeNotes.Contains(this))
             activeNotes.Add(this);
     }
@@ -28,13 +27,13 @@ public class NoteControl : MonoBehaviour
     {
         float songTime = GameManager.Instance.GetSongTime();
 
-        float t = 1f - ((targetTime - songTime) / travelTime);
+        float t = 1f - ((_targetTime - songTime) / _travelTime);
         t = Mathf.Clamp01(t);
-        transform.position = Vector3.Lerp(startPos, targetPos, t);
+        transform.position = Vector3.Lerp(_startPos, _targetPos, t);
 
-        if (!hit && songTime - targetTime > 0.2f)
+        if (!_hit && songTime - _targetTime > 0.2f)
         {
-            hit = true; 
+            _hit = true; 
             GameManager.Instance.RegisterHit(Judgement.Miss);
             Destroy(gameObject);
         }
@@ -42,10 +41,10 @@ public class NoteControl : MonoBehaviour
 
     public bool TryHit()
     {
-        if (hit) return false;
+        if (_hit) return false;
 
         float songTime = GameManager.Instance.GetSongTime();
-        float diff = Mathf.Abs(songTime - targetTime);
+        float diff = Mathf.Abs(songTime - _targetTime);
 
         if (diff <= 0.05f)
         {
@@ -64,13 +63,13 @@ public class NoteControl : MonoBehaviour
             return false;
         }
 
-        hit = true;
+        _hit = true;
         Destroy(gameObject);
         return true;
     }
 
-    public float GetTargetTime() => targetTime;
-    public bool IsHit() => hit;
+    public float GetTargetTime() => _targetTime;
+    public bool IsHit() => _hit;
 
     void OnDestroy()
     {
