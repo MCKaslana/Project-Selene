@@ -5,14 +5,14 @@ public class InputManager : MonoBehaviour
 {
     private PlayerInputs _playerInput;
 
-    void Update()
+    private void Awake()
     {
-        //_playerInput = new PlayerInputs();
+        _playerInput = new PlayerInputs();
 
-        //_playerInput.Player.ClickNote.performed
-        //    += context => TryHitNote();
+        _playerInput.Player.ClickNote.performed
+            += context => TryHitNote();
 
-        if (Input.GetKeyDown(KeyCode.Space)) TryHitNote();
+        _playerInput.Enable();
     }
 
     void TryHitNote()
