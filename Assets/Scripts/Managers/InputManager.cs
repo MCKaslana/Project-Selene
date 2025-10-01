@@ -17,7 +17,7 @@ public class InputManager : MonoBehaviour
 
     void TryHitNote()
     {
-        NoteControl[] notes = FindObjectsOfType<NoteControl>(false);
+        NoteControl[] notes = FindObjectsByType<NoteControl>(FindObjectsSortMode.None);
         if (notes.Length == 0) return;
 
         float currentTime = GameManager.Instance.GetSongTime();

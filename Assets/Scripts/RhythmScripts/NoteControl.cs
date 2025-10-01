@@ -27,9 +27,9 @@ public class NoteControl : MonoBehaviour
     {
         float songTime = GameManager.Instance.GetSongTime();
 
-        float t = 1f - ((_targetTime - songTime) / _travelTime);
-        t = Mathf.Clamp01(t);
-        transform.position = Vector3.Lerp(_startPos, _targetPos, t);
+        float travelProgress = 1f - ((_targetTime - songTime) / _travelTime);
+        travelProgress = Mathf.Clamp01(travelProgress);
+        transform.position = Vector2.Lerp(_startPos, _targetPos, travelProgress);
 
         if (!_hit && songTime - _targetTime > 0.2f)
         {
