@@ -46,22 +46,18 @@ public class NoteControl : MonoBehaviour
         float songTime = GameManager.Instance.GetSongTime();
         float diff = Mathf.Abs(songTime - _targetTime);
 
-        if (diff <= 0.05f)
+        Judgement? judgement = diff switch
         {
-            GameManager.Instance.RegisterHit(Judgement.Perfect);
-        }
-        else if (diff <= 0.1f)
-        {
-            GameManager.Instance.RegisterHit(Judgement.Great);
-        }
-        else if (diff <= 0.2f)
-        {
-            GameManager.Instance.RegisterHit(Judgement.Good);
-        }
-        else
-        {
+            <= 0.05f => Judgement.Perfect,
+            <= 0.1f => Judgement.Great,
+            <= 0.2f => Judgement.Good,
+            _ => null
+        };
+
+        if (judgement == null)
             return false;
-        }
+
+        GameManager.Instance.RegisterHit(judgement.Value);
 
         _hit = true;
         Destroy(gameObject);
