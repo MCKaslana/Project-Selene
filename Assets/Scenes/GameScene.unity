@@ -1562,7 +1562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _musicSource: {fileID: 2044384987}
   _beatmap: {fileID: 4900000, guid: d44fbaf29546919439d01ae5295da7e2, type: 3}
-  _songOffset: 0
+  _songOffset: -0.1
   _noteSpawner: {fileID: 2044384988}
 --- !u!114 &2044384985
 MonoBehaviour:
