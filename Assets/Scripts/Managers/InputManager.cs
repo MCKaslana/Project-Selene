@@ -11,6 +11,10 @@ public class InputManager : MonoBehaviour
 
         _playerInput.Player.ClickNote.performed
             += context => TryHitNote();
+        /*_playerInput.Player.SwitchKey1.performed
+            += context => 
+        _playerInput.Player.SwitchKey2.performed
+            += context => */
 
         _playerInput.Enable();
     }
@@ -20,7 +24,7 @@ public class InputManager : MonoBehaviour
         NoteControl[] notes = FindObjectsByType<NoteControl>(FindObjectsSortMode.None);
         if (notes.Length == 0) return;
 
-        float currentTime = GameManager.Instance.GetSongTime();
+        float currentTime = SongManager.Instance.GetSongTime();
 
         NoteControl closest = notes
             .Where(n => !n.IsHit())
@@ -32,7 +36,7 @@ public class InputManager : MonoBehaviour
             bool hit = closest.TryHit();
 
             if (!hit)
-                GameManager.Instance.RegisterHit(Judgement.Miss);
+                SongManager.Instance.RegisterHit(Judgement.Miss);
         }
     }
 }

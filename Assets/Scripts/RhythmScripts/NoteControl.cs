@@ -25,7 +25,7 @@ public class NoteControl : MonoBehaviour
 
     void Update()
     {
-        float songTime = GameManager.Instance.GetSongTime();
+        float songTime = SongManager.Instance.GetSongTime();
 
         float travelProgress = 1f - ((_targetTime - songTime) / _travelTime);
         travelProgress = Mathf.Clamp01(travelProgress);
@@ -34,7 +34,7 @@ public class NoteControl : MonoBehaviour
         if (!_hit && songTime - _targetTime > 0.2f)
         {
             _hit = true; 
-            GameManager.Instance.RegisterHit(Judgement.Miss);
+            SongManager.Instance.RegisterHit(Judgement.Miss);
             Destroy(gameObject);
         }
     }
@@ -43,7 +43,7 @@ public class NoteControl : MonoBehaviour
     {
         if (_hit) return false;
 
-        float songTime = GameManager.Instance.GetSongTime();
+        float songTime = SongManager.Instance.GetSongTime();
         float diff = Mathf.Abs(songTime - _targetTime);
 
         Judgement? judgement = diff switch
@@ -57,7 +57,7 @@ public class NoteControl : MonoBehaviour
         if (judgement == null)
             return false;
 
-        GameManager.Instance.RegisterHit(judgement.Value);
+        SongManager.Instance.RegisterHit(judgement.Value);
 
         _hit = true;
         Destroy(gameObject);
@@ -66,9 +66,5 @@ public class NoteControl : MonoBehaviour
 
     public float GetTargetTime() => _targetTime;
     public bool IsHit() => _hit;
-
-    void OnDestroy()
-    {
-        activeNotes.Remove(this);
+    private void OnDestroy() => activeNotes.Remove(this);
     }
-}
