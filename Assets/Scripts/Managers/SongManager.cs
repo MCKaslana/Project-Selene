@@ -86,7 +86,7 @@ public class SongManager : Singleton<SongManager>
                 Combo++;
                 break;
             case Judgement.Miss:
-                Score -= 1000;
+                Score -= 500;
                 Combo = 0;
                 MissCount++;
                 break;
