@@ -5,18 +5,28 @@ public class InputManager : MonoBehaviour
 {
     private PlayerInputs _playerInput;
 
+    [Header("ShapeKeys")]
+    private ShapeKey _currentShapeKey;
+    public ShapeKey CurrentShapeKey => _currentShapeKey;
+
     private void Awake()
     {
         _playerInput = new PlayerInputs();
 
         _playerInput.Player.ClickNote.performed
             += context => TryHitNote();
-        /*_playerInput.Player.SwitchKey1.performed
-            += context => 
+
+        _playerInput.Player.SwitchKey1.performed
+            += context => _currentShapeKey = ShapeKey.Square;
         _playerInput.Player.SwitchKey2.performed
-            += context => */
+            += context => _currentShapeKey = ShapeKey.Circle;
 
         _playerInput.Enable();
+    }
+
+    private void Start()
+    {
+        _currentShapeKey = ShapeKey.Square; // default
     }
 
     void TryHitNote()

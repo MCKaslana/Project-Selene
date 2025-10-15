@@ -12,12 +12,15 @@ public class NoteControl : MonoBehaviour
     private float _travelTime;
     private bool _hit = false;
 
-    public void Initialize(float targetTime, Vector3 targetPos, float travelTime)
+    private ShapeKey _shapeKey;
+
+    public void Initialize(float targetTime, Vector3 targetPos, float travelTime, ShapeKey key)
     {
         _targetTime = targetTime;
         _targetPos = targetPos;
         _travelTime = travelTime;
         _startPos = transform.position;
+        _shapeKey = key;
 
         if (!activeNotes.Contains(this))
             activeNotes.Add(this);
