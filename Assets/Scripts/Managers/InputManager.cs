@@ -80,7 +80,7 @@ public class InputManager : MonoBehaviour
             bool hit = closest.TryHit(_currentShapeKey.keyValue);
 
             if (!hit)
-                SongManager.Instance.RegisterHit(Judgement.Miss);
+                SongManager.Instance.RegisterHit(new MissJudgement());
         }
     }
 }

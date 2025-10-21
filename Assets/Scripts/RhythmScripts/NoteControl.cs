@@ -37,33 +37,33 @@ public class NoteControl : MonoBehaviour
         if (!_hit && songTime - _targetTime > 0.2f)
         {
             _hit = true; 
-            SongManager.Instance.RegisterHit(Judgement.Miss);
+            SongManager.Instance.RegisterHit(new MissJudgement());
             Destroy(gameObject);
         }
     }
 
     public bool TryHit(ShapeKey playerKey)
     {
-        if (playerKey != _shapeKey)
-            return false;
+        /*if (playerKey != _shapeKey)
+            return false;*/
 
         if (_hit) return false;
 
         float songTime = SongManager.Instance.GetSongTime();
         float diff = Mathf.Abs(songTime - _targetTime);
 
-        Judgement? judgement = diff switch
+        IJudgement judgement = diff switch
         {
-            <= 0.05f => Judgement.Perfect,
-            <= 0.1f => Judgement.Great,
-            <= 0.2f => Judgement.Good,
-            _ => null
+            <= 0.05f => new PerfectJudgement(),
+            <= 0.1f => new GreatJudgement(),
+            <= 0.2f => new GoodJudgement(),
+            _ => new MissJudgement()
         };
 
         if (judgement == null)
             return false;
 
-        SongManager.Instance.RegisterHit(judgement.Value);
+        SongManager.Instance.RegisterHit(judgement);
 
         _hit = true;
         Destroy(gameObject);

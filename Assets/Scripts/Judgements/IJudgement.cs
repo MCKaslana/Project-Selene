@@ -1,16 +1,6 @@
 using UnityEngine;
 
-public class IJudgement : MonoBehaviour
+public interface IJudgement
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void RegisterHit(SongManager manager);
 }

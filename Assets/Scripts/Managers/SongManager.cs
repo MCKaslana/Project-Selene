@@ -20,10 +20,15 @@ public class SongManager : Singleton<SongManager>
     [SerializeField] private NoteSpawner _noteSpawner;
 
     [Header("Game Stats")]
-    public int Score { get; private set; }
-    public int Combo { get; private set; }
-    public int MaxCombo { get; private set; }
-    public int MissCount { get; private set; }
+    private int _score;
+    public int _combo;
+    public int _maxCombo;
+    public int _missCount;
+
+    public int Score => _score;
+    public int Combo => _combo;
+    public int MaxCombo => _maxCombo;
+    public int MissCount => _missCount;
 
     void Start()
     {
@@ -60,7 +65,7 @@ public class SongManager : Singleton<SongManager>
     {
         string[] lines = _beatmap.text.Split('\n');
 
-        MaxCombo = _beatmap.text.Length;
+        _maxCombo = _beatmap.text.Length;
 
         foreach (string line in lines)
         {
@@ -69,34 +74,19 @@ public class SongManager : Singleton<SongManager>
         }
     }
 
-    public void RegisterHit(Judgement judgment)
+    public void RegisterHit(IJudgement judgement)
     {
-        switch (judgment)
-        {
-            case Judgement.Perfect:
-                Score += 4000;
-                Combo++;
-                break;
-            case Judgement.Great:
-                Score += 2000;
-                Combo++;
-                break;
-            case Judgement.Good:
-                Score += 1000;
-                Combo++;
-                break;
-            case Judgement.Miss:
-                Score -= 500;
-                Combo = 0;
-                MissCount++;
-                break;
-        }
+        judgement.RegisterHit(this);
 
-        if (Combo > MaxCombo)
-            MaxCombo = Combo;
-
-        OnScoreUpdate?.Invoke(Score);
-        OnComboUpdate?.Invoke(Combo);
-        OnMissUpdate?.Invoke(MissCount);
+        OnScoreUpdate?.Invoke(_score);
+        OnComboUpdate?.Invoke(_combo);
+        OnMissUpdate?.Invoke(_missCount);
     }
+
+    // methods for increasing game stats
+
+    public void IncreaseScore(int amount) => _score += amount;
+    public void IncreaseCombo() => _combo++;
+    public void IncreaseMissCount() => _missCount++;
+    public void ResetCombo() => _combo = 0;
 }
