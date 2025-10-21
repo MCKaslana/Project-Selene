@@ -37,15 +37,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ComboHit"",
-                    ""type"": ""Button"",
-                    ""id"": ""e2e0242f-e9a2-469e-a6d7-32a17861f04a"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""SwitchKey1"",
                     ""type"": ""Button"",
                     ""id"": ""576d7001-4cf3-4c56-a49e-bda2194d4e84"",
@@ -62,6 +53,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchKey3"",
+                    ""type"": ""Button"",
+                    ""id"": ""4e85c4fa-3947-4292-91aa-bb0c9c435535"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -73,17 +73,6 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ClickNote"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3633fd86-cc79-4a5c-9847-eafba5f81602"",
-                    ""path"": ""<Keyboard>/enter"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ComboHit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -106,6 +95,17 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SwitchKey2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5a3e4249-f067-4cd0-a76d-d7527bd28a10"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchKey3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -694,9 +694,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_ClickNote = m_Player.FindAction("ClickNote", throwIfNotFound: true);
-        m_Player_ComboHit = m_Player.FindAction("ComboHit", throwIfNotFound: true);
         m_Player_SwitchKey1 = m_Player.FindAction("SwitchKey1", throwIfNotFound: true);
         m_Player_SwitchKey2 = m_Player.FindAction("SwitchKey2", throwIfNotFound: true);
+        m_Player_SwitchKey3 = m_Player.FindAction("SwitchKey3", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -777,17 +777,17 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_ClickNote;
-    private readonly InputAction m_Player_ComboHit;
     private readonly InputAction m_Player_SwitchKey1;
     private readonly InputAction m_Player_SwitchKey2;
+    private readonly InputAction m_Player_SwitchKey3;
     public struct PlayerActions
     {
         private @PlayerInputs m_Wrapper;
         public PlayerActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @ClickNote => m_Wrapper.m_Player_ClickNote;
-        public InputAction @ComboHit => m_Wrapper.m_Player_ComboHit;
         public InputAction @SwitchKey1 => m_Wrapper.m_Player_SwitchKey1;
         public InputAction @SwitchKey2 => m_Wrapper.m_Player_SwitchKey2;
+        public InputAction @SwitchKey3 => m_Wrapper.m_Player_SwitchKey3;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -800,15 +800,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @ClickNote.started += instance.OnClickNote;
             @ClickNote.performed += instance.OnClickNote;
             @ClickNote.canceled += instance.OnClickNote;
-            @ComboHit.started += instance.OnComboHit;
-            @ComboHit.performed += instance.OnComboHit;
-            @ComboHit.canceled += instance.OnComboHit;
             @SwitchKey1.started += instance.OnSwitchKey1;
             @SwitchKey1.performed += instance.OnSwitchKey1;
             @SwitchKey1.canceled += instance.OnSwitchKey1;
             @SwitchKey2.started += instance.OnSwitchKey2;
             @SwitchKey2.performed += instance.OnSwitchKey2;
             @SwitchKey2.canceled += instance.OnSwitchKey2;
+            @SwitchKey3.started += instance.OnSwitchKey3;
+            @SwitchKey3.performed += instance.OnSwitchKey3;
+            @SwitchKey3.canceled += instance.OnSwitchKey3;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -816,15 +816,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @ClickNote.started -= instance.OnClickNote;
             @ClickNote.performed -= instance.OnClickNote;
             @ClickNote.canceled -= instance.OnClickNote;
-            @ComboHit.started -= instance.OnComboHit;
-            @ComboHit.performed -= instance.OnComboHit;
-            @ComboHit.canceled -= instance.OnComboHit;
             @SwitchKey1.started -= instance.OnSwitchKey1;
             @SwitchKey1.performed -= instance.OnSwitchKey1;
             @SwitchKey1.canceled -= instance.OnSwitchKey1;
             @SwitchKey2.started -= instance.OnSwitchKey2;
             @SwitchKey2.performed -= instance.OnSwitchKey2;
             @SwitchKey2.canceled -= instance.OnSwitchKey2;
+            @SwitchKey3.started -= instance.OnSwitchKey3;
+            @SwitchKey3.performed -= instance.OnSwitchKey3;
+            @SwitchKey3.canceled -= instance.OnSwitchKey3;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1008,9 +1008,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnClickNote(InputAction.CallbackContext context);
-        void OnComboHit(InputAction.CallbackContext context);
         void OnSwitchKey1(InputAction.CallbackContext context);
         void OnSwitchKey2(InputAction.CallbackContext context);
+        void OnSwitchKey3(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

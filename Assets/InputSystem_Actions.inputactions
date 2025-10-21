@@ -15,15 +15,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ComboHit",
-                    "type": "Button",
-                    "id": "e2e0242f-e9a2-469e-a6d7-32a17861f04a",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "SwitchKey1",
                     "type": "Button",
                     "id": "576d7001-4cf3-4c56-a49e-bda2194d4e84",
@@ -40,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchKey3",
+                    "type": "Button",
+                    "id": "4e85c4fa-3947-4292-91aa-bb0c9c435535",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -51,17 +51,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "ClickNote",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3633fd86-cc79-4a5c-9847-eafba5f81602",
-                    "path": "<Keyboard>/enter",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ComboHit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -84,6 +73,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "SwitchKey2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5a3e4249-f067-4cd0-a76d-d7527bd28a10",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchKey3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

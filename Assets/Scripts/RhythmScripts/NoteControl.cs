@@ -42,8 +42,11 @@ public class NoteControl : MonoBehaviour
         }
     }
 
-    public bool TryHit()
+    public bool TryHit(ShapeKey playerKey)
     {
+        if (playerKey != _shapeKey)
+            return false;
+
         if (_hit) return false;
 
         float songTime = SongManager.Instance.GetSongTime();

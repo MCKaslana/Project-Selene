@@ -1,13 +1,21 @@
 using UnityEngine;
 using System.Linq;
+using System.Collections.Generic;
+using System;
+using Unity.VisualScripting;
+using UnityEditor;
 
 public class InputManager : MonoBehaviour
 {
     private PlayerInputs _playerInput;
 
     [Header("ShapeKeys")]
-    private ShapeKey _currentShapeKey;
-    public ShapeKey CurrentShapeKey => _currentShapeKey;
+    [SerializeField] private List<ShapeKeyObject> _shapeKeys;
+    [SerializeField] private Transform _shapeKeySpawn;
+
+    private ShapeKeyObject _currentShapeKey;
+
+    private int _activeShapeKeyIndex = 0;
 
     private void Awake()
     {
@@ -17,19 +25,45 @@ public class InputManager : MonoBehaviour
             += context => TryHitNote();
 
         _playerInput.Player.SwitchKey1.performed
-            += context => _currentShapeKey = ShapeKey.Square;
+            += context => ToggleShapeKey(0);
         _playerInput.Player.SwitchKey2.performed
-            += context => _currentShapeKey = ShapeKey.Circle;
+            += context => ToggleShapeKey(1);
+        _playerInput.Player.SwitchKey3.performed
+            += context => ToggleShapeKey(2);
 
-        _playerInput.Enable();
+        _playerInput.Player.Enable();
     }
 
     private void Start()
     {
-        _currentShapeKey = ShapeKey.Square; // default
+        foreach (var key in _shapeKeys)
+        {
+            GameObject obj = Instantiate(key.keyObject, _shapeKeySpawn.position, Quaternion.identity, _shapeKeySpawn);
+            key.runTimeObject = obj;
+            obj.SetActive(false);
+        }
+
+        ToggleShapeKey(0);
     }
 
-    void TryHitNote()
+    private void ToggleShapeKey(int index)
+    {
+        if (index < 0 || index >= _shapeKeys.Count)
+            return;
+
+        _activeShapeKeyIndex = index;
+        _currentShapeKey = _shapeKeys[index];
+
+        for (int i = 0; i < _shapeKeys.Count; i++)
+        {
+            var key = _shapeKeys[i];
+            bool isActive = i == index;
+            if (key.runTimeObject != null)
+                key.runTimeObject.SetActive(isActive);
+        }
+    }
+
+    private void TryHitNote()
     {
         NoteControl[] notes = FindObjectsByType<NoteControl>(FindObjectsSortMode.None);
         if (notes.Length == 0) return;
@@ -43,7 +77,7 @@ public class InputManager : MonoBehaviour
 
         if (closest != null)
         {
-            bool hit = closest.TryHit();
+            bool hit = closest.TryHit(_currentShapeKey.keyValue);
 
             if (!hit)
                 SongManager.Instance.RegisterHit(Judgement.Miss);
