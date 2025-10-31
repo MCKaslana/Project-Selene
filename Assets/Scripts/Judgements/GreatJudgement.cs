@@ -6,5 +6,6 @@ public class GreatJudgement : IJudgement
     {
         manager.IncreaseScore(2000);
         manager.IncreaseCombo();
+        manager.ShowPopup("Great!", Color.cyan);
     }
 }

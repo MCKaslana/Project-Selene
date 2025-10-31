@@ -17,13 +17,18 @@ public class SongManager : Singleton<SongManager>
     private List<float> noteTimings = new();
     private int _nextNoteIndex = 0;
 
+    [Header("Note Spawner")]
     [SerializeField] private NoteSpawner _noteSpawner;
+
+    [Header("Judgement Popup Settings")]
+    [SerializeField] private JudgementPopup _popupPrefab;
+    [SerializeField] private Transform _popupParent;
 
     [Header("Game Stats")]
     private int _score;
-    public int _combo;
-    public int _maxCombo;
-    public int _missCount;
+    private int _combo;
+    private int _maxCombo;
+    private int _missCount;
 
     public int Score => _score;
     public int Combo => _combo;
@@ -81,6 +86,18 @@ public class SongManager : Singleton<SongManager>
         OnScoreUpdate?.Invoke(_score);
         OnComboUpdate?.Invoke(_combo);
         OnMissUpdate?.Invoke(_missCount);
+    }
+
+    public void ShowPopup(string text, Color color)
+    {
+        if (_popupPrefab == null || _popupParent == null)
+        {
+            Debug.LogWarning("JudgementPopup prefab or parent not assigned!");
+            return;
+        }
+
+        JudgementPopup popup = Instantiate(_popupPrefab, _popupParent);
+        popup.Initialize(text, color);
     }
 
     // methods for increasing game stats

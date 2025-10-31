@@ -6,5 +6,6 @@ public class PerfectJudgement : IJudgement
     {
         manager.IncreaseScore(4000);
         manager.IncreaseCombo();
+        manager.ShowPopup("Perfect!", Color.yellow);
     }
 }
