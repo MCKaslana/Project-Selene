@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class NoteControl : MonoBehaviour
@@ -13,6 +14,7 @@ public class NoteControl : MonoBehaviour
     private bool _hit = false;
 
     private ShapeKey _shapeKey;
+    private GameObject _visualInstance;
 
     public void Initialize(float targetTime, Vector3 targetPos, float travelTime, ShapeKey key)
     {
@@ -24,6 +26,17 @@ public class NoteControl : MonoBehaviour
 
         if (!activeNotes.Contains(this))
             activeNotes.Add(this);
+    }
+
+    public void SetVisual(ShapeKeyObject visualKey)
+    {
+        if (visualKey == null || visualKey.keyObject == null)
+        {
+            return;
+        }
+
+        _visualInstance = Instantiate(visualKey.keyObject, transform);
+        _visualInstance.transform.localPosition = Vector3.zero;
     }
 
     void Update()
@@ -44,8 +57,8 @@ public class NoteControl : MonoBehaviour
 
     public bool TryHit(ShapeKey playerKey)
     {
-        /*if (playerKey != _shapeKey)
-            return false;*/
+        if (playerKey != _shapeKey)
+            return false;
 
         if (_hit) return false;
 
