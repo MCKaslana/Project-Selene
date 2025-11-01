@@ -16,6 +16,9 @@ public class NoteControl : MonoBehaviour
     private ShapeKey _shapeKey;
     private GameObject _visualInstance;
 
+    [Header("Icon Offset")]
+    [SerializeField] private Vector3 _iconOffset = new Vector3(0f, 1f, 0f);
+
     public void Initialize(float targetTime, Vector3 targetPos, float travelTime, ShapeKey key)
     {
         _targetTime = targetTime;
@@ -35,8 +38,14 @@ public class NoteControl : MonoBehaviour
             return;
         }
 
-        _visualInstance = Instantiate(visualKey.keyObject, transform);
-        _visualInstance.transform.localPosition = Vector3.zero;
+        Vector3 spawnPos = transform.position + _iconOffset;
+        _visualInstance = Instantiate(visualKey.keyObject, spawnPos, Quaternion.identity);
+
+        _visualInstance.transform.SetParent(transform, true);
+
+        var sr = _visualInstance.GetComponent<SpriteRenderer>();
+        if (sr != null)
+            sr.sortingOrder += 1;
     }
 
     void Update()
