@@ -389,8 +389,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Shape Strike
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 124b9eb6ccae1ee47803db4ac33d9442, type: 2}
-  m_sharedMaterial: {fileID: -4934053535923216826, guid: 124b9eb6ccae1ee47803db4ac33d9442, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 41ff2ba3c9fa33a4a92685d642c84606, type: 2}
+  m_sharedMaterial: {fileID: 3762243230782462137, guid: 41ff2ba3c9fa33a4a92685d642c84606, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
