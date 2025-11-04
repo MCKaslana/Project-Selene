@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Singleton<T> : MonoBehaviour where T : Component
 {
+    protected virtual bool IsPersistent => true;
     public static T Instance { get; private set; }
 
     public virtual void Awake()
@@ -9,7 +10,8 @@ public class Singleton<T> : MonoBehaviour where T : Component
         if (Instance == null)
         {
             Instance = this as T;
-            DontDestroyOnLoad(this.gameObject);
+            if (IsPersistent)
+                DontDestroyOnLoad(gameObject);
         }
         else
         {

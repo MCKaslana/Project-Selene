@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SongManager : Singleton<SongManager>
 {
+    protected override bool IsPersistent => false;
+
     public event Action<int> OnScoreUpdate;
     public event Action<int> OnComboUpdate;
     public event Action<int> OnMissUpdate;
@@ -39,6 +41,7 @@ public class SongManager : Singleton<SongManager>
     {
         LoadBeatmap();
         Invoke(nameof(StartSong), 1f);
+        _maxCombo = 0;
     }
 
     void Update()
@@ -55,6 +58,13 @@ public class SongManager : Singleton<SongManager>
         }
     }
 
+    //use for song selecting
+    public void SetSong(AudioSource currentTrack, TextAsset beatmap)
+    {
+        _musicSource = currentTrack;
+        _beatmap = beatmap;
+    }
+
     public float GetSongTime()
     {
         return (Time.time - _songStartTime) + _songOffset;
@@ -69,8 +79,6 @@ public class SongManager : Singleton<SongManager>
     void LoadBeatmap()
     {
         string[] lines = _beatmap.text.Split('\n');
-
-        _maxCombo = _beatmap.text.Length;
 
         foreach (string line in lines)
         {
@@ -105,5 +113,11 @@ public class SongManager : Singleton<SongManager>
     public void IncreaseScore(int amount) => _score += amount;
     public void IncreaseCombo() => _combo++;
     public void IncreaseMissCount() => _missCount++;
-    public void ResetCombo() => _combo = 0;
+    public void ResetCombo()
+    {
+        if (_combo > _maxCombo)
+            _maxCombo = _combo;
+
+        _combo = 0;
+    }
 }
