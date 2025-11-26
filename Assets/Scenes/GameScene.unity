@@ -1776,7 +1776,6 @@ MonoBehaviour:
   _shapeKeys:
   - {fileID: 11400000, guid: 34ec7cc825f6e1b4abe58026e68fcb43, type: 2}
   - {fileID: 11400000, guid: d15d1133c187469488a7829c23655c92, type: 2}
-  - {fileID: 11400000, guid: 9cbc9eff5a71ffe47b914f1c58a8748b, type: 2}
 --- !u!114 &2044384989
 MonoBehaviour:
   m_ObjectHideFlags: 0
