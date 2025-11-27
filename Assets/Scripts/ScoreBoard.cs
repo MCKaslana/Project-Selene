@@ -28,5 +28,6 @@ public class ScoreBoard : MonoBehaviour
         _goodValue.text = "Good: " + data.Goods;
         _missValue.text = "Misses: " + data.MissCount;
         _accuracyValue.text = "% " + data.Accuracy;
+        _maxComboValue.text = "x" + data.MaxCombo;
     }
 }
