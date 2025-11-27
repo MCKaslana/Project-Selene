@@ -5,9 +5,12 @@ public class ScoreBoard : MonoBehaviour
 {
     [Header("UI References")]
     [SerializeField] private TextMeshProUGUI _scoreText;
-    [SerializeField] private TextMeshProUGUI _comboText;
-    [SerializeField] private TextMeshProUGUI _maxComboText;
-    [SerializeField] private TextMeshProUGUI _missCountText;
+    [SerializeField] private TextMeshProUGUI _perfectValue;
+    [SerializeField] private TextMeshProUGUI _greatValue;
+    [SerializeField] private TextMeshProUGUI _goodValue;
+    [SerializeField] private TextMeshProUGUI _missValue;
+    [SerializeField] private TextMeshProUGUI _maxComboValue;
+    [SerializeField] private TextMeshProUGUI _accuracyValue;
 
     private void Start()
     {
@@ -19,9 +22,11 @@ public class ScoreBoard : MonoBehaviour
             return;
         }
 
-        _scoreText.text = $"{data.Score}";
-        _comboText.text = $"{data.Combo}";
-        _maxComboText.text = $"{data.MaxCombo}";
-        _missCountText.text = $"{data.MissCount}";
+        _scoreText.text = "Score: " + data.Score;
+        _perfectValue.text = "Perfect: " + data.Perfects;
+        _greatValue.text = "Great: " + data.Greats;
+        _goodValue.text = "Good: " + data.Goods;
+        _missValue.text = "Misses: " + data.MissCount;
+        _accuracyValue.text = "% " + data.Accuracy;
     }
 }

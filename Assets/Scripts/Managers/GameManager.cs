@@ -1,26 +1,39 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
     protected override bool IsPersistent => false;
-
-    private bool _isGameOver = false;
 
     private int _finalScore;
     private int _finalCombo;
     private int _finalMaxCombo;
     private int _finalMissCount;
 
+    // Judgement counts
+    private int _perfectHits = 0;
+    private int _greatHits = 0;
+    private int _goodHits = 0;
+
     public int GetFinalScore() => _finalScore;
     public int GetFinalCombo() => _finalCombo;
     public int GetFinalMaxCombo() => _finalMaxCombo;
     public int GetFinalMissCount() => _finalMissCount;
+    public int GetPerfectHits() => _perfectHits;
+    public int GetGreatHits() => _greatHits;
+    public int GetGoodHits() => _goodHits;
+
+    public void UpdatePerfectHit() => _perfectHits++;
+    public void UpdateGreatHit() => _greatHits++;
+    public void UpdateGoodHit() => _goodHits++;
 
     public void GameOver()
     {
         GetPlayerData();
+        PlayerData.Instance.SaveFromManager();
+        SceneManager.LoadScene("ScoreScreen");
     }
 
     public void GetPlayerData()

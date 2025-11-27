@@ -56,6 +56,10 @@ public class SongManager : Singleton<SongManager>
                 _nextNoteIndex++;
             }
         }
+        else
+        {
+            GameManager.Instance.GameOver();
+        }
     }
 
     //use for song selecting

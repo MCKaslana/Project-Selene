@@ -8,6 +8,11 @@ public class PlayerData : Singleton<PlayerData>
     public int MaxCombo { get; private set; }
     public int MissCount { get; private set; }
 
+    public int Perfects {  get; private set; }
+    public int Greats { get; private set; }
+    public int Goods { get; private set; }
+    public int Accuracy { get; private set; }
+
     public void SaveFromManager()
     {
         var gm = GameManager.Instance;
@@ -18,5 +23,8 @@ public class PlayerData : Singleton<PlayerData>
         Combo = gm.GetFinalCombo();
         MaxCombo = gm.GetFinalMaxCombo();
         MissCount = gm.GetFinalMissCount();
+        Perfects = gm.GetPerfectHits();
+        Greats = gm.GetGreatHits();
+        Goods = gm.GetGoodHits();
     }
 }
