@@ -62,6 +62,15 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""1009f494-d92f-4b11-9b59-21f9343edc78"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -106,6 +115,17 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SwitchKey3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4b076028-d631-4019-925d-9c0dca686c4c"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -697,6 +717,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Player_SwitchKey1 = m_Player.FindAction("SwitchKey1", throwIfNotFound: true);
         m_Player_SwitchKey2 = m_Player.FindAction("SwitchKey2", throwIfNotFound: true);
         m_Player_SwitchKey3 = m_Player.FindAction("SwitchKey3", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -780,6 +801,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SwitchKey1;
     private readonly InputAction m_Player_SwitchKey2;
     private readonly InputAction m_Player_SwitchKey3;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @PlayerInputs m_Wrapper;
@@ -788,6 +810,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @SwitchKey1 => m_Wrapper.m_Player_SwitchKey1;
         public InputAction @SwitchKey2 => m_Wrapper.m_Player_SwitchKey2;
         public InputAction @SwitchKey3 => m_Wrapper.m_Player_SwitchKey3;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -809,6 +832,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @SwitchKey3.started += instance.OnSwitchKey3;
             @SwitchKey3.performed += instance.OnSwitchKey3;
             @SwitchKey3.canceled += instance.OnSwitchKey3;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -825,6 +851,9 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @SwitchKey3.started -= instance.OnSwitchKey3;
             @SwitchKey3.performed -= instance.OnSwitchKey3;
             @SwitchKey3.canceled -= instance.OnSwitchKey3;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1011,6 +1040,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnSwitchKey1(InputAction.CallbackContext context);
         void OnSwitchKey2(InputAction.CallbackContext context);
         void OnSwitchKey3(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

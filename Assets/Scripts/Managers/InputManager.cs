@@ -11,6 +11,7 @@ public class InputManager : MonoBehaviour
     [Header("ShapeKeys")]
     [SerializeField] private List<ShapeKeyObject> _shapeKeys;
     [SerializeField] private Transform _shapeKeySpawn;
+    [SerializeField] private GameObject _pauseMenu;
 
     private ShapeKeyObject _currentShapeKey;
 
@@ -30,6 +31,9 @@ public class InputManager : MonoBehaviour
         _playerInput.Player.SwitchKey3.performed
             += context => ToggleShapeKey(2);
 
+        _playerInput.Player.Pause.performed
+            += context => TogglePauseMenu();
+
         _playerInput.Player.Enable();
     }
 
@@ -43,6 +47,16 @@ public class InputManager : MonoBehaviour
         }
 
         ToggleShapeKey(0);
+    }
+
+    private void TogglePauseMenu()
+    {
+        if (_pauseMenu != null)
+        {
+            bool isActive = _pauseMenu.activeSelf;
+            _pauseMenu.SetActive(!isActive);
+            Time.timeScale = isActive ? 1f : 0f;
+        }
     }
 
     private void ToggleShapeKey(int index)
