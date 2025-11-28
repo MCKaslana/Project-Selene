@@ -2,5 +2,5 @@ using UnityEngine;
 
 public interface IJudgement
 {
-    void RegisterHit(SongManager manager);
+    void RegisterHit(SongManager manager, float multiplier);
 }

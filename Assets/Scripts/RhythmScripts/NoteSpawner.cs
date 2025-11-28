@@ -12,6 +12,7 @@ public class NoteSpawner : MonoBehaviour
 
     [Header("Difficulty Setter")]
     [SerializeField] private DifficultyData _difficulty;
+    public float DifficultyMultiplier => _difficulty.ScoreMultiplier;
 
     public float NoteTravelTime { get; private set; } = 2f;
 

@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class PerfectJudgement : IJudgement
 {
-    public void RegisterHit(SongManager manager)
+    public void RegisterHit(SongManager manager, float multiplier)
     {
         GameManager.Instance.UpdatePerfectHit();
-        manager.IncreaseScore(4000);
+        int scoreToAdd = Mathf.RoundToInt(4000 * multiplier);
+        manager.IncreaseScore(scoreToAdd);
         manager.IncreaseCombo();
         manager.ShowPopup("Perfect!", Color.yellow);
     }

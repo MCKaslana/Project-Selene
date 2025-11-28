@@ -93,7 +93,7 @@ public class SongManager : Singleton<SongManager>
 
     public void RegisterHit(IJudgement judgement)
     {
-        judgement.RegisterHit(this);
+        judgement.RegisterHit(this, _noteSpawner.DifficultyMultiplier);
 
         OnScoreUpdate?.Invoke(_score);
         OnComboUpdate?.Invoke(_combo);
