@@ -33,7 +33,7 @@ public class UserInterface : MonoBehaviour
 
     private void UpdateScore(int score)
     {
-        _scoreText.text = $"Score : <| {score} |>";
+        _scoreText.text = $"<| {score} |>";
     }
 
     private void UpdateCombo(int combo)
@@ -43,6 +43,6 @@ public class UserInterface : MonoBehaviour
 
     private void UpdateMissCount(int missCount)
     {
-        _missCountText.text = $"Misses : < {missCount} >";
+        _missCountText.text = $"X : < {missCount} >";
     }
 }
