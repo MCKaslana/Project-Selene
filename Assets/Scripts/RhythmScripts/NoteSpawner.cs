@@ -4,33 +4,39 @@ using UnityEngine;
 public class NoteSpawner : MonoBehaviour
 {
     [Header("Note Prefab")]
-    [SerializeField] GameObject notePrefab;
+    [SerializeField] private GameObject _notePrefab;
 
     [Header("PositionalData")]
-    [SerializeField] Transform spawnPoint;
-    [SerializeField] Transform hitLine;
+    [SerializeField] private Transform _spawnPoint;
+    [SerializeField] private Transform _hitLine;
 
-    [Header("Shape Keys")]
-    [SerializeField] private ShapeKeyObject[] _shapeKeys;
+    [Header("Difficulty Setter")]
+    [SerializeField] private DifficultyData _difficulty;
 
     public float NoteTravelTime { get; private set; } = 2f;
 
     public void SpawnNote(float targetTime)
     {
-        ShapeKey randomKey = GetRandomShapeKey();
+        if (_difficulty == null || _difficulty.shapeKeys.Length == 0)
+        {
+            Debug.LogWarning("Difficulty data or shape keys not set properly.");
+            return;
+        }
 
-        ShapeKeyObject keyObj = Array.Find(_shapeKeys, k => k.keyValue == randomKey);
+        ShapeKeyObject keyObject = GetRandomShapeKey();
+        ShapeKey randomKey = keyObject.keyValue;
 
-        GameObject noteObj = Instantiate(notePrefab, spawnPoint.position, Quaternion.identity);
+        GameObject noteObj = Instantiate(_notePrefab, _spawnPoint.position, Quaternion.identity);
         NoteControl note = noteObj.GetComponent<NoteControl>();
-        note.Initialize(targetTime, hitLine.position, NoteTravelTime, randomKey);
+        note.Initialize(targetTime, _hitLine.position, NoteTravelTime, randomKey);
 
-        note.SetVisual(keyObj);
+        note.SetVisual(keyObject);
     }
 
-    private ShapeKey GetRandomShapeKey()
+    private ShapeKeyObject GetRandomShapeKey()
     {
-        Array values = Enum.GetValues(typeof(ShapeKey));
-        return (ShapeKey)values.GetValue(UnityEngine.Random.Range(0, values.Length));
+        return _difficulty.shapeKeys
+            [UnityEngine.Random.Range(0, _difficulty.shapeKeys.Length)
+        ];
     }
 }

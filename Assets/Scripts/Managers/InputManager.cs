@@ -35,6 +35,8 @@ public class InputManager : MonoBehaviour
             += context => TogglePauseMenu();
 
         _playerInput.Player.Enable();
+
+        _pauseMenu.SetActive(false);
     }
 
     private void Start()
