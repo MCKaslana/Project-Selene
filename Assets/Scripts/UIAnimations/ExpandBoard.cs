@@ -9,6 +9,10 @@ public class ExpandBoard : MonoBehaviour
     [SerializeField] private RectTransform _bottomSection;
     [SerializeField] private float _animationDuration;
 
+    [Header("Display Information")]
+    [SerializeField] private GameObject[] _displayObjects;
+    [SerializeField] private float _displayWaitTime;
+
     [Header("Open Positions")]
     [SerializeField] private Transform _topOpenPosition;
     [SerializeField] private Transform _bottomOpenPosition;
@@ -23,6 +27,11 @@ public class ExpandBoard : MonoBehaviour
         _board = GetComponent<CanvasGroup>();
         _originalTopPosition = _topSection.anchoredPosition;
         _originalBottomPosition = _bottomSection.anchoredPosition;
+
+        foreach (var obj in _displayObjects)
+        {
+            obj.AddComponent<CanvasGroup>().alpha = 0;
+        }
     }
 
     private void Start()
@@ -37,5 +46,18 @@ public class ExpandBoard : MonoBehaviour
     {
         yield return new WaitForSeconds(_animationDuration);
         _board.DOFade(1, _animationDuration);
+        StartCoroutine(StarObjectDisplay());
+    }
+
+    private IEnumerator StarObjectDisplay()
+    {
+        yield return new WaitForSeconds(_animationDuration);
+
+        foreach (var obj in _displayObjects)
+        {
+            CanvasGroup canvasGroup = obj.GetComponent<CanvasGroup>();
+            canvasGroup.DOFade(1, 0.5f);
+            yield return new WaitForSeconds(_displayWaitTime);
+        }
     }
 }
