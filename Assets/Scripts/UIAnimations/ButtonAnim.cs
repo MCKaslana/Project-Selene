@@ -13,6 +13,7 @@ public class ButtonAnim : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 {
     [Header("Button Settings")]
     [SerializeField] private ButtonMode _mode;
+    [SerializeField] private float _scaleValue = 1.15f;
 
     private Vector2 _originalX;
     private Vector2 _originalY;
@@ -38,7 +39,7 @@ public class ButtonAnim : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        transform.DOScale(1.15f, 0.5f);
+        transform.DOScale(_scaleValue, 0.5f);
     }
 
     public void OnPointerExit(PointerEventData eventData)
