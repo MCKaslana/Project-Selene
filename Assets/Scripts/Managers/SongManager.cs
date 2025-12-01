@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class SongManager : Singleton<SongManager>
 {
@@ -46,7 +47,7 @@ public class SongManager : Singleton<SongManager>
         _noteSpawner.SetDifficulty(_difficulty);
 
         LoadBeatmap();
-        Invoke(nameof(StartSong), 1f);
+        Invoke(nameof(StartSong), 3f);
         _maxCombo = 0;
     }
 
@@ -62,10 +63,17 @@ public class SongManager : Singleton<SongManager>
                 _nextNoteIndex++;
             }
         }
-        else
+
+        if (!_musicSource.isPlaying)
         {
-            GameManager.Instance.GameOver();
+            StartCoroutine(BeginEndSongDelay());
         }
+    }
+
+    private IEnumerator BeginEndSongDelay()
+    {
+        yield return new WaitForSeconds(2f);
+        GameManager.Instance.GameOver();
     }
 
     //use for song selecting
