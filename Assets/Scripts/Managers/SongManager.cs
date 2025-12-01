@@ -42,7 +42,8 @@ public class SongManager : Singleton<SongManager>
 
     void Start()
     {
-        //_difficulty = GameSettings.Instance.CurrentGameDifficulty;
+        _difficulty = GameSettings.Instance.CurrentGameDifficulty;
+        _noteSpawner.SetDifficulty(_difficulty);
 
         LoadBeatmap();
         Invoke(nameof(StartSong), 1f);
@@ -76,7 +77,8 @@ public class SongManager : Singleton<SongManager>
 
     public float GetSongTime()
     {
-        return (Time.time - _songStartTime) + _songOffset;
+        //return (Time.time - _songStartTime) + _songOffset;
+        return _musicSource.time + _songOffset;
     }
 
     void StartSong()
