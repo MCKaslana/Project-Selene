@@ -3243,6 +3243,7 @@ MonoBehaviour:
   _notePrefab: {fileID: 7209404379676396420, guid: ceda291c8b3ae7f429d3b4639be22fc7, type: 3}
   _spawnPoint: {fileID: 1741382528}
   _hitLine: {fileID: 2045780342}
+  _difficulty: {fileID: 11400000, guid: b5a8e4269f2bb0647967570f1914f72f, type: 2}
 --- !u!114 &2044384989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3276,7 +3277,7 @@ MonoBehaviour:
   _musicSource: {fileID: 2044384987}
   _beatmap: {fileID: 4900000, guid: d44fbaf29546919439d01ae5295da7e2, type: 3}
   _songOffset: -0.1
-  _difficulty: {fileID: 0}
+  _difficulty: {fileID: 11400000, guid: b5a8e4269f2bb0647967570f1914f72f, type: 2}
   _noteSpawner: {fileID: 2044384988}
   _popupPrefab: {fileID: 5089844595146094378, guid: 6cf2082b6b2baba46bd8f4e41174f9f2, type: 3}
   _popupParent: {fileID: 3502177117726461115}

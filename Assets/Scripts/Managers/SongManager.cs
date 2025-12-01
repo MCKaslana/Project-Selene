@@ -42,8 +42,7 @@ public class SongManager : Singleton<SongManager>
 
     void Start()
     {
-        _difficulty = GameSettings.Instance.CurrentGameDifficulty;
-        _noteSpawner.SetDifficulty(_difficulty);
+        //_difficulty = GameSettings.Instance.CurrentGameDifficulty;
 
         LoadBeatmap();
         Invoke(nameof(StartSong), 1f);
@@ -121,7 +120,13 @@ public class SongManager : Singleton<SongManager>
     // methods for increasing game stats
 
     public void IncreaseScore(int amount) => _score += amount;
-    public void IncreaseCombo() => _combo++;
+    public void IncreaseCombo()
+    {
+        _combo++;
+
+        if (_combo > _maxCombo)
+            _maxCombo = _combo;
+    }
     public void IncreaseMissCount() => _missCount++;
     public void ResetCombo()
     {

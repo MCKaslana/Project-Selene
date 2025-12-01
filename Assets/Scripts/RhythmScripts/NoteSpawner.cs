@@ -10,14 +10,9 @@ public class NoteSpawner : MonoBehaviour
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private Transform _hitLine;
 
-    private DifficultyData _difficulty;
+    [SerializeField] private DifficultyData _difficulty;
 
     public float NoteTravelTime { get; private set; } = 2f;
-
-    public void SetDifficulty(DifficultyData currentDifficulty)
-    {
-        _difficulty = currentDifficulty;
-    }
 
     public void SpawnNote(float targetTime)
     {
