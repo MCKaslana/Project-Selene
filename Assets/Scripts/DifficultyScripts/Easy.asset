@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4adba29c728e9d34785b8567fbdea0e4, type: 3}
   m_Name: Easy
   m_EditorClassIdentifier: 
+  difficultyName: Easy
+  ScoreMultiplier: 1
   shapeKeys:
   - {fileID: 11400000, guid: 9cbc9eff5a71ffe47b914f1c58a8748b, type: 2}

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4adba29c728e9d34785b8567fbdea0e4, type: 3}
   m_Name: Hard
   m_EditorClassIdentifier: 
+  difficultyName: Hard
+  ScoreMultiplier: 1.1
   shapeKeys:
   - {fileID: 11400000, guid: 9cbc9eff5a71ffe47b914f1c58a8748b, type: 2}
   - {fileID: 11400000, guid: 34ec7cc825f6e1b4abe58026e68fcb43, type: 2}

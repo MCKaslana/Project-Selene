@@ -15,6 +15,9 @@ public class SongManager : Singleton<SongManager>
     [SerializeField] private TextAsset _beatmap;
     [SerializeField] private float _songOffset = 0f;
 
+    [SerializeField] private DifficultyData _difficulty;
+    public DifficultyData CurrentDifficulty => _difficulty;
+
     private float _songStartTime;
     private List<float> noteTimings = new();
     private int _nextNoteIndex = 0;
@@ -39,6 +42,9 @@ public class SongManager : Singleton<SongManager>
 
     void Start()
     {
+        _difficulty = GameSettings.Instance.CurrentGameDifficulty;
+        _noteSpawner.SetDifficulty(_difficulty);
+
         LoadBeatmap();
         Invoke(nameof(StartSong), 1f);
         _maxCombo = 0;
@@ -93,7 +99,7 @@ public class SongManager : Singleton<SongManager>
 
     public void RegisterHit(IJudgement judgement)
     {
-        judgement.RegisterHit(this, _noteSpawner.DifficultyMultiplier);
+        judgement.RegisterHit(this, _difficulty.ScoreMultiplier);
 
         OnScoreUpdate?.Invoke(_score);
         OnComboUpdate?.Invoke(_combo);

@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4adba29c728e9d34785b8567fbdea0e4, type: 3}
   m_Name: Impossible
   m_EditorClassIdentifier: 
+  difficultyName: Impossible
+  ScoreMultiplier: 1.5
   shapeKeys: []
