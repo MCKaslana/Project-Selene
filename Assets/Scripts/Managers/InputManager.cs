@@ -80,6 +80,8 @@ public class InputManager : MonoBehaviour
 
     private void TryHitNote()
     {
+        Debug.Log("HitNote");
+
         NoteControl[] notes = FindObjectsByType<NoteControl>(FindObjectsSortMode.None);
         if (notes.Length == 0) return;
 
