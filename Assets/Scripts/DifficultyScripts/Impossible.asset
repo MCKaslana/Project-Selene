@@ -12,6 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4adba29c728e9d34785b8567fbdea0e4, type: 3}
   m_Name: Impossible
   m_EditorClassIdentifier: 
-  difficultyName: Impossible
-  ScoreMultiplier: 1.5
-  shapeKeys: []
+  difficultyName: << IMPOSSIBLE >>
+  ScoreMultiplier: 2
+  shapeKeys:
+  - {fileID: 11400000, guid: 9cbc9eff5a71ffe47b914f1c58a8748b, type: 2}
+  - {fileID: 11400000, guid: 34ec7cc825f6e1b4abe58026e68fcb43, type: 2}
+  - {fileID: 11400000, guid: d15d1133c187469488a7829c23655c92, type: 2}
+  - {fileID: 11400000, guid: 5853cf9fffee63d4c9e3772a8841883c, type: 2}
+  - {fileID: 11400000, guid: acee71df3228b7848a6e567c7e679e8a, type: 2}
+  - {fileID: 11400000, guid: d86833b7c27e88c43a9aa571b1a69d9e, type: 2}
+  - {fileID: 11400000, guid: e8d8b1e1a4b294043a700e636a514325, type: 2}

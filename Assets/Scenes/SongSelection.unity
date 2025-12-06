@@ -378,6 +378,10 @@ PrefabInstance:
       value: DifficultySelector, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2899661677941494169, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899661677941494169, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
@@ -664,6 +668,10 @@ PrefabInstance:
     - target: {fileID: 2899661677941494169, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: DifficultySelector, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899661677941494169, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2899661677941494169, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -2620,6 +2628,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b5a8e4269f2bb0647967570f1914f72f, type: 2}
   - {fileID: 11400000, guid: f5a16ae6f04fb6343bca4a2d60042c0d, type: 2}
   - {fileID: 11400000, guid: b29501aabd824124ca370c92167d73d9, type: 2}
+  - {fileID: 11400000, guid: b9b67326202d5834cb8a14bc18ce4583, type: 2}
+  - {fileID: 11400000, guid: d039d8df8d7aea44e92221579da76f4f, type: 2}
+  - {fileID: 11400000, guid: 33b9c9cc2f1ebda43ac9a9c8abc6c403, type: 2}
   difficultyLabel: {fileID: 467909753}
 --- !u!4 &1955994485
 Transform:
@@ -2747,6 +2758,10 @@ PrefabInstance:
     - target: {fileID: 2899661677941494169, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: DifficultySelector, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899661677941494169, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2899661677941494169, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
