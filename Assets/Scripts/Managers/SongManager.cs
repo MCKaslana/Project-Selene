@@ -11,6 +11,8 @@ public class SongManager : Singleton<SongManager>
     public event Action<int> OnComboUpdate;
     public event Action<int> OnMissUpdate;
 
+    private bool _hasSongStarted = false;
+
     [Header("Song Settings")]
     [SerializeField] private AudioSource _musicSource;
     [SerializeField] private TextAsset _beatmap;
@@ -53,6 +55,8 @@ public class SongManager : Singleton<SongManager>
 
     void Update()
     {
+        if (!_hasSongStarted) return;
+
         if (_musicSource.isPlaying && _nextNoteIndex < noteTimings.Count)
         {
             float songTime = GetSongTime();
@@ -85,7 +89,6 @@ public class SongManager : Singleton<SongManager>
 
     public float GetSongTime()
     {
-        //return (Time.time - _songStartTime) + _songOffset;
         return _musicSource.time + _songOffset;
     }
 
@@ -93,6 +96,7 @@ public class SongManager : Singleton<SongManager>
     {
         _songStartTime = Time.time;
         _musicSource.Play();
+        _hasSongStarted = true;
     }
 
     void LoadBeatmap()

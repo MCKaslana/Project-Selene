@@ -4,5 +4,9 @@ public enum ShapeKey
 {
     Square,
     Circle,
-    Triangle
+    Triangle,
+    Hexagon,
+    Diamond,
+    Star,
+    Capsule
 }

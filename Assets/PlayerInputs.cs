@@ -71,6 +71,42 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchKey4"",
+                    ""type"": ""Button"",
+                    ""id"": ""2021b7df-4a9d-4af1-b5d0-f6d9c6fb2cc5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchKey5"",
+                    ""type"": ""Button"",
+                    ""id"": ""78699585-0a7b-4ca2-9e76-a8f8c196594a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchKey6"",
+                    ""type"": ""Button"",
+                    ""id"": ""62396605-3683-45a5-b9f3-f8e830f7ef97"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchKey7"",
+                    ""type"": ""Button"",
+                    ""id"": ""b0130ce8-fbc3-40ad-b925-6b2cce48c42a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -126,6 +162,50 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cdd33ee3-ccd9-41eb-808f-f2bdc3248182"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchKey4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e25baf26-1609-4746-a666-0d2eede477cb"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchKey5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b29e71e7-e274-4153-9590-597b57da26a9"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchKey6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cdf7f038-fa33-4fc2-9fc2-e113e423c4f7"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchKey7"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -718,6 +798,10 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Player_SwitchKey2 = m_Player.FindAction("SwitchKey2", throwIfNotFound: true);
         m_Player_SwitchKey3 = m_Player.FindAction("SwitchKey3", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_SwitchKey4 = m_Player.FindAction("SwitchKey4", throwIfNotFound: true);
+        m_Player_SwitchKey5 = m_Player.FindAction("SwitchKey5", throwIfNotFound: true);
+        m_Player_SwitchKey6 = m_Player.FindAction("SwitchKey6", throwIfNotFound: true);
+        m_Player_SwitchKey7 = m_Player.FindAction("SwitchKey7", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -802,6 +886,10 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SwitchKey2;
     private readonly InputAction m_Player_SwitchKey3;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_SwitchKey4;
+    private readonly InputAction m_Player_SwitchKey5;
+    private readonly InputAction m_Player_SwitchKey6;
+    private readonly InputAction m_Player_SwitchKey7;
     public struct PlayerActions
     {
         private @PlayerInputs m_Wrapper;
@@ -811,6 +899,10 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @SwitchKey2 => m_Wrapper.m_Player_SwitchKey2;
         public InputAction @SwitchKey3 => m_Wrapper.m_Player_SwitchKey3;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @SwitchKey4 => m_Wrapper.m_Player_SwitchKey4;
+        public InputAction @SwitchKey5 => m_Wrapper.m_Player_SwitchKey5;
+        public InputAction @SwitchKey6 => m_Wrapper.m_Player_SwitchKey6;
+        public InputAction @SwitchKey7 => m_Wrapper.m_Player_SwitchKey7;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -835,6 +927,18 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @SwitchKey4.started += instance.OnSwitchKey4;
+            @SwitchKey4.performed += instance.OnSwitchKey4;
+            @SwitchKey4.canceled += instance.OnSwitchKey4;
+            @SwitchKey5.started += instance.OnSwitchKey5;
+            @SwitchKey5.performed += instance.OnSwitchKey5;
+            @SwitchKey5.canceled += instance.OnSwitchKey5;
+            @SwitchKey6.started += instance.OnSwitchKey6;
+            @SwitchKey6.performed += instance.OnSwitchKey6;
+            @SwitchKey6.canceled += instance.OnSwitchKey6;
+            @SwitchKey7.started += instance.OnSwitchKey7;
+            @SwitchKey7.performed += instance.OnSwitchKey7;
+            @SwitchKey7.canceled += instance.OnSwitchKey7;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -854,6 +958,18 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @SwitchKey4.started -= instance.OnSwitchKey4;
+            @SwitchKey4.performed -= instance.OnSwitchKey4;
+            @SwitchKey4.canceled -= instance.OnSwitchKey4;
+            @SwitchKey5.started -= instance.OnSwitchKey5;
+            @SwitchKey5.performed -= instance.OnSwitchKey5;
+            @SwitchKey5.canceled -= instance.OnSwitchKey5;
+            @SwitchKey6.started -= instance.OnSwitchKey6;
+            @SwitchKey6.performed -= instance.OnSwitchKey6;
+            @SwitchKey6.canceled -= instance.OnSwitchKey6;
+            @SwitchKey7.started -= instance.OnSwitchKey7;
+            @SwitchKey7.performed -= instance.OnSwitchKey7;
+            @SwitchKey7.canceled -= instance.OnSwitchKey7;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1041,6 +1157,10 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnSwitchKey2(InputAction.CallbackContext context);
         void OnSwitchKey3(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnSwitchKey4(InputAction.CallbackContext context);
+        void OnSwitchKey5(InputAction.CallbackContext context);
+        void OnSwitchKey6(InputAction.CallbackContext context);
+        void OnSwitchKey7(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
