@@ -24,17 +24,31 @@ public class InGameInput : MonoBehaviour
     private void OnEnable()
     {
         _input.OnTryHitNote += TryHitNote;
+
         _input.OnKeyOnePress += () => ToggleShapeKey(0);
         _input.OnKeyTwoPress += () => ToggleShapeKey(1);
         _input.OnKeyThreePress += () => ToggleShapeKey(2);
+        _input.OnKeyFourPress += () => ToggleShapeKey(3);
+        _input.OnKeyFivePress += () => ToggleShapeKey(4);
+        _input.OnKeySixPress += () => ToggleShapeKey(5);
+        _input.OnKeySevenPress += () => ToggleShapeKey(6);
+
+        _input.OnPausePress += TogglePauseMenu;
     }
 
     private void OnDisable()
     {
         _input.OnTryHitNote -= TryHitNote;
+
         _input.OnKeyOnePress -= () => ToggleShapeKey(0);
         _input.OnKeyTwoPress -= () => ToggleShapeKey(1);
         _input.OnKeyThreePress -= () => ToggleShapeKey(2);
+        _input.OnKeyFourPress -= () => ToggleShapeKey(3);
+        _input.OnKeyFivePress -= () => ToggleShapeKey(4);
+        _input.OnKeySixPress -= () => ToggleShapeKey(5);
+        _input.OnKeySevenPress -= () => ToggleShapeKey(6);
+
+        _input.OnPausePress -= TogglePauseMenu;
     }
 
     private void Start()
