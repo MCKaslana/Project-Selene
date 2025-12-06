@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class ScoreBoard : MonoBehaviour
 {
+    [Header("SFX")]
+    private AudioSource _audioSource;
+    [SerializeField] private AudioClip _victorySound;
+
     [Header("UI References")]
     [SerializeField] private TextMeshProUGUI _scoreText;
     [SerializeField] private TextMeshProUGUI _perfectValue;
@@ -14,6 +18,11 @@ public class ScoreBoard : MonoBehaviour
 
     private void Start()
     {
+        gameObject.AddComponent<AudioSource>();
+        _audioSource = GetComponent<AudioSource>();
+
+        PlayVictorySound();
+
         var data = PlayerData.Instance;
 
         if (data == null)
@@ -29,5 +38,13 @@ public class ScoreBoard : MonoBehaviour
         _missValue.text = "Misses: " + data.MissCount;
         _accuracyValue.text = "% " + data.Accuracy;
         _maxComboValue.text = "x" + data.MaxCombo;
+    }
+
+    private void PlayVictorySound()
+    {
+        if (_victorySound != null && _audioSource != null)
+        {
+            _audioSource.PlayOneShot(_victorySound);
+        }
     }
 }

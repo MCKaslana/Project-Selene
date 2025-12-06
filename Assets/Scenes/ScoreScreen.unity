@@ -921,6 +921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3ab8cbcea192c409f6eb9db19a8ad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _victorySound: {fileID: 8300000, guid: 0bc23b76437ed0d41b0b4907c794c869, type: 3}
   _scoreText: {fileID: 1144866763}
   _perfectValue: {fileID: 1223247552}
   _greatValue: {fileID: 1959912116}
