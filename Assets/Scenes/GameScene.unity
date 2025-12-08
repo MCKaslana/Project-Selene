@@ -1710,6 +1710,7 @@ GameObject:
   - component: {fileID: 1313189647}
   - component: {fileID: 1313189646}
   - component: {fileID: 1313189649}
+  - component: {fileID: 1313189650}
   m_Layer: 0
   m_Name: QuitToMenu
   m_TagString: Untagged
@@ -1833,6 +1834,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _scaleValue: 1.15
+--- !u!114 &1313189650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313189644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee4857c39d088b4b849a65fefabcb73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitionType: 0
+  sceneIndex: 1
+  sceneName: 
 --- !u!1 &1313374981
 GameObject:
   m_ObjectHideFlags: 0
@@ -3762,7 +3778,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 271427551513122770}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2044384990}
+        m_TargetAssemblyTypeName: SongManager, Assembly-CSharp
+        m_MethodName: ResumeGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
