@@ -11,6 +11,10 @@ public class SongManager : Singleton<SongManager>
     public event Action<int> OnComboUpdate;
     public event Action<int> OnMissUpdate;
 
+    private bool _isPaused = false;
+    private float _pauseTimestamp;
+    public bool IsPaused => _isPaused;
+
     private bool _hasSongStarted = false;
 
     [Header("Song Settings")]
@@ -70,6 +74,8 @@ public class SongManager : Singleton<SongManager>
 
     void Update()
     {
+        if (_isPaused) return;
+
         if (!_hasSongStarted) return;
 
         if (_musicSource.isPlaying && _nextNoteIndex < noteTimings.Count)
@@ -158,5 +164,23 @@ public class SongManager : Singleton<SongManager>
             _maxCombo = _combo;
 
         _combo = 0;
+    }
+
+    public void PauseGame()
+    {
+        if (_isPaused) return;
+
+        _isPaused = true;
+        _pauseTimestamp = _musicSource.time;
+        _musicSource.Pause();
+    }
+
+    public void ResumeGame()
+    {
+        if (!_isPaused) return;
+
+        _isPaused = false;
+        _musicSource.time = _pauseTimestamp;
+        _musicSource.Play();
     }
 }

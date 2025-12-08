@@ -65,11 +65,16 @@ public class InGameInput : MonoBehaviour
 
     private void TogglePauseMenu()
     {
-        if (_pauseMenu != null)
+        bool opening = !_pauseMenu.activeSelf;
+        _pauseMenu.SetActive(opening);
+
+        if (opening)
         {
-            bool isActive = _pauseMenu.activeSelf;
-            _pauseMenu.SetActive(!isActive);
-            Time.timeScale = isActive ? 1f : 0f;
+            SongManager.Instance.PauseGame();
+        }
+        else
+        {
+            SongManager.Instance.ResumeGame();
         }
     }
 
@@ -92,7 +97,7 @@ public class InGameInput : MonoBehaviour
 
     private void TryHitNote()
     {
-        Debug.Log("HitNote");
+        if (SongManager.Instance.IsPaused) return;
 
         NoteControl[] notes = FindObjectsByType<NoteControl>(FindObjectsSortMode.None);
         if (notes.Length == 0) return;
