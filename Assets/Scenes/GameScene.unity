@@ -3142,8 +3142,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4579734b930281d499cce2587394963e, type: 3}
-  m_Resource: {fileID: 8300000, guid: 4579734b930281d499cce2587394963e, type: 3}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.7
   m_Pitch: 1
@@ -3268,8 +3268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c349a834e0d450045936299b7c2ede5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _musicSource: {fileID: 2044384987}
-  _beatmap: {fileID: 4900000, guid: d44fbaf29546919439d01ae5295da7e2, type: 3}
+  _currentSong: {fileID: 11400000, guid: 7356031ce559f57459d7f6409891b8a7, type: 2}
   _songOffset: -0.1
   _difficulty: {fileID: 11400000, guid: b5a8e4269f2bb0647967570f1914f72f, type: 2}
   _noteSpawner: {fileID: 2044384988}

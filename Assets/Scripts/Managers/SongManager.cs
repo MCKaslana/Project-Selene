@@ -14,8 +14,12 @@ public class SongManager : Singleton<SongManager>
     private bool _hasSongStarted = false;
 
     [Header("Song Settings")]
-    [SerializeField] private AudioSource _musicSource;
-    [SerializeField] private TextAsset _beatmap;
+    [SerializeField] private SongData _currentSong;
+    private AudioSource _musicSource;
+
+    private AudioClip _song;
+    private TextAsset _beatmap;
+
     [SerializeField] private float _songOffset = 0f;
 
     [SerializeField] private DifficultyData _difficulty;
@@ -43,10 +47,21 @@ public class SongManager : Singleton<SongManager>
     public int MaxCombo => _maxCombo;
     public int MissCount => _missCount;
 
+    public override void Awake()
+    {
+        base.Awake();
+
+        _musicSource = GetComponent<AudioSource>();
+    }
+
     void Start()
     {
         _difficulty = GameSettings.Instance.CurrentGameDifficulty;
+        _currentSong = GameSettings.Instance.CurrentSongData;
         _noteSpawner.SetDifficulty(_difficulty);
+
+        _song = _currentSong.MusicTrack;
+        _beatmap = _currentSong.TimingData;
 
         LoadBeatmap();
         Invoke(nameof(StartSong), 3f);
@@ -68,8 +83,9 @@ public class SongManager : Singleton<SongManager>
             }
         }
 
-        if (!_musicSource.isPlaying)
+        if (_musicSource.time >= _musicSource.clip.length - 0.1f)
         {
+            Debug.Log("Song Ended by time");
             StartCoroutine(BeginEndSongDelay());
         }
     }
@@ -80,13 +96,6 @@ public class SongManager : Singleton<SongManager>
         GameManager.Instance.GameOver();
     }
 
-    //use for song selecting
-    public void SetSong(AudioSource currentTrack, TextAsset beatmap)
-    {
-        _musicSource = currentTrack;
-        _beatmap = beatmap;
-    }
-
     public float GetSongTime()
     {
         return _musicSource.time + _songOffset;
@@ -95,6 +104,7 @@ public class SongManager : Singleton<SongManager>
     void StartSong()
     {
         _songStartTime = Time.time;
+        _musicSource.resource = _song;
         _musicSource.Play();
         _hasSongStarted = true;
     }

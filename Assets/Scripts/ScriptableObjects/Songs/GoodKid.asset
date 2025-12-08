@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd67a402f021c954594e20460b49f48b, type: 3}
+  m_Name: GoodKid
+  m_EditorClassIdentifier: 
+  TimingData: {fileID: 4900000, guid: 2dd59746610c0a0468fe1de5d808726a, type: 3}
+  MusicTrack: {fileID: 8300000, guid: b475b580814ba904b86361dcdd7e2245, type: 3}
