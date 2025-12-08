@@ -25,8 +25,6 @@ public class SceneTransitionerButton : MonoBehaviour
 
     private void OnButtonClicked()
     {
-        Debug.Log($"SceneTransitionButton clicked: {transitionType}");
-
         if (SceneTransitioner.Instance == null)
         {
             Debug.LogError("No SceneTransitioner found in scene!");
