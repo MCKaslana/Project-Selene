@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimingData: {fileID: 4900000, guid: d44fbaf29546919439d01ae5295da7e2, type: 3}
   MusicTrack: {fileID: 8300000, guid: 4579734b930281d499cce2587394963e, type: 3}
+  PreviewStartTime: 30
+  PreviewLength: 10
+  SongID: 001
+  SongName: Softbgm

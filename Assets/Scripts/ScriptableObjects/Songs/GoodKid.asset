@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimingData: {fileID: 4900000, guid: 2dd59746610c0a0468fe1de5d808726a, type: 3}
   MusicTrack: {fileID: 8300000, guid: b475b580814ba904b86361dcdd7e2245, type: 3}
+  PreviewStartTime: 30
+  PreviewLength: 10
+  SongID: 002
+  SongName: Osmosis

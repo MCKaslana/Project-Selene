@@ -9,4 +9,8 @@ public class SongData : ScriptableObject
     [Header("Preview Settings")]
     public float PreviewStartTime = 30f;
     public float PreviewLength = 10f;
+
+    [Header("Song Info")]
+    public string SongID;
+    public string SongName;
 }

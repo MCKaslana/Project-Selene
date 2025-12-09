@@ -4,6 +4,7 @@ public class SongSelector : MonoBehaviour
 {
     [Header("Songs")]
     [SerializeField] private SongData[] _songs;
+    [SerializeField] private LeaderboardUI _leaderboardUI;
 
     private int _selectedIndex = 0;
 
@@ -27,6 +28,7 @@ public class SongSelector : MonoBehaviour
     {
         SongData song = _songs[_selectedIndex];
         GameSettings.Instance.SetSongData(song);
+        _leaderboardUI.SetSong(song);
 
         PlayPreview(song);
     }

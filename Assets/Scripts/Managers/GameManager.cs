@@ -33,6 +33,13 @@ public class GameManager : Singleton<GameManager>
     {
         GetPlayerData();
         PlayerData.Instance.SaveFromManager();
+
+        var p = PlayerData.Instance;
+        var diff = GameSettings.Instance.CurrentGameDifficulty.difficultyName;
+        var song = GameSettings.Instance.CurrentSongData;
+
+        LeaderboardManager.Instance.AddEntry(song.SongID, p.Score, diff, p.Accuracy);
+
         SceneManager.LoadScene("ScoreScreen");
     }
 
