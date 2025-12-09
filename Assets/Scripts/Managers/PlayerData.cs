@@ -26,5 +26,6 @@ public class PlayerData : Singleton<PlayerData>
         Perfects = gm.GetPerfectHits();
         Greats = gm.GetGreatHits();
         Goods = gm.GetGoodHits();
+        Accuracy = gm.GetAccuracy();
     }
 }

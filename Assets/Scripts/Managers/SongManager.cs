@@ -10,6 +10,7 @@ public class SongManager : Singleton<SongManager>
     public event Action<int> OnScoreUpdate;
     public event Action<int> OnComboUpdate;
     public event Action<int> OnMissUpdate;
+    public event Action<int> OnAccuracyUpdate;
 
     private bool _isPaused = false;
     private float _pauseTimestamp;
@@ -130,9 +131,12 @@ public class SongManager : Singleton<SongManager>
     {
         judgement.RegisterHit(this, _difficulty.ScoreMultiplier);
 
+        AccuracyManager.Instance.RegisterJudgement(judgement);
+
         OnScoreUpdate?.Invoke(_score);
         OnComboUpdate?.Invoke(_combo);
         OnMissUpdate?.Invoke(_missCount);
+        OnAccuracyUpdate?.Invoke(AccuracyManager.Instance.GetAccuracyPercent());
     }
 
     public void ShowPopup(string text, Color color)

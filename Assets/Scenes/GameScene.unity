@@ -1834,6 +1834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _scaleValue: 1.15
+  _slideEndPoint: 0
 --- !u!114 &1313189650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3083,6 +3084,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _scaleValue: 1.15
+  _slideEndPoint: 0
 --- !u!1 &2044384983
 GameObject:
   m_ObjectHideFlags: 0
@@ -3099,6 +3101,7 @@ GameObject:
   - component: {fileID: 2044384989}
   - component: {fileID: 2044384990}
   - component: {fileID: 2044384991}
+  - component: {fileID: 2044384992}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -3133,6 +3136,7 @@ MonoBehaviour:
   _scoreText: {fileID: 1508893986}
   _comboText: {fileID: 1752572508}
   _missCountText: {fileID: 1388355327}
+  _accuracyText: {fileID: 1533178300}
 --- !u!4 &2044384986
 Transform:
   m_ObjectHideFlags: 0
@@ -3312,6 +3316,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e8d8b1e1a4b294043a700e636a514325, type: 2}
   _shapeKeySpawn: {fileID: 1924997503}
   _pauseMenu: {fileID: 458878631}
+--- !u!114 &2044384992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044384983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 264f26006f4f0574fae50872bcf1c865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2045780340
 GameObject:
   m_ObjectHideFlags: 0
@@ -3575,6 +3591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _scaleValue: 1.15
+  _slideEndPoint: 0
 --- !u!114 &2895692943023664462
 MonoBehaviour:
   m_ObjectHideFlags: 0

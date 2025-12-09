@@ -24,6 +24,7 @@ public class GameManager : Singleton<GameManager>
     public int GetPerfectHits() => _perfectHits;
     public int GetGreatHits() => _greatHits;
     public int GetGoodHits() => _goodHits;
+    public int GetAccuracy() => AccuracyManager.Instance.GetAccuracyPercent();
 
     public void UpdatePerfectHit() => _perfectHits++;
     public void UpdateGreatHit() => _greatHits++;

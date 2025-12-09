@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PerfectJudgement : IJudgement
 {
+    public int AccuracyValue => 100;
+
     public void RegisterHit(SongManager manager, float multiplier)
     {
         GameManager.Instance.UpdatePerfectHit();
