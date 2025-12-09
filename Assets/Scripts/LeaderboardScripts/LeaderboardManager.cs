@@ -5,6 +5,8 @@ public class LeaderboardManager : Singleton<LeaderboardManager>
 {
     protected override bool IsPersistent => false;
 
+    private int _maxEntries = 9;
+
     private string GetPath(string songID)
     {
         return Path.Combine(Application.persistentDataPath, $"leaderboard_{songID}.json");
@@ -37,8 +39,8 @@ public class LeaderboardManager : Singleton<LeaderboardManager>
         data.entries.Add(new LeaderboardEntry(score, difficulty, accuracy, combo));
         data.entries.Sort((a, b) => b.score.CompareTo(a.score));
 
-        if (data.entries.Count > 15)
-            data.entries.RemoveRange(15, data.entries.Count - 15);
+        if (data.entries.Count > _maxEntries)
+            data.entries.RemoveRange(_maxEntries, data.entries.Count - _maxEntries);
 
         Save(songID, data);
     }

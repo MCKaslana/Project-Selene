@@ -335,7 +335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2234325418836325234, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -515
+      value: -1189
       objectReference: {fileID: 0}
     - target: {fileID: 2234325418836325234, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -412,8 +412,16 @@ PrefabInstance:
       value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 9021551167383789629, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
+      propertyPath: _mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9021551167383789629, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: _scaleValue
       value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9021551167383789629, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
+      propertyPath: _slideEndPoint
+      value: -505
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -631,7 +639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2234325418836325234, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -515
+      value: -1189
       objectReference: {fileID: 0}
     - target: {fileID: 2234325418836325234, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -708,8 +716,16 @@ PrefabInstance:
       value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 9021551167383789629, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
+      propertyPath: _mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9021551167383789629, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: _scaleValue
       value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9021551167383789629, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
+      propertyPath: _slideEndPoint
+      value: -505
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -785,7 +801,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 245}
+  m_AnchoredPosition: {x: 0, y: 371}
   m_SizeDelta: {x: 1000, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &467909753
@@ -835,8 +851,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1237,6 +1253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _scaleValue: 1.15
+  _slideEndPoint: 0
 --- !u!114 &565602545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1887,7 +1904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2234325418836325234, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -515
+      value: -1189
       objectReference: {fileID: 0}
     - target: {fileID: 2234325418836325234, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1964,8 +1981,16 @@ PrefabInstance:
       value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 9021551167383789629, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
+      propertyPath: _mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9021551167383789629, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: _scaleValue
       value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9021551167383789629, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
+      propertyPath: _slideEndPoint
+      value: -505
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2348,7 +2373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2234325418836325234, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -515
+      value: -1189
       objectReference: {fileID: 0}
     - target: {fileID: 2234325418836325234, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2425,8 +2450,16 @@ PrefabInstance:
       value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 9021551167383789629, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
+      propertyPath: _mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9021551167383789629, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: _scaleValue
       value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9021551167383789629, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
+      propertyPath: _slideEndPoint
+      value: -505
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2618,7 +2651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2234325418836325234, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -515
+      value: -1189
       objectReference: {fileID: 0}
     - target: {fileID: 2234325418836325234, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2691,8 +2724,16 @@ PrefabInstance:
       value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 9021551167383789629, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
+      propertyPath: _mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9021551167383789629, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: _scaleValue
       value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9021551167383789629, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
+      propertyPath: _slideEndPoint
+      value: -505
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3543,7 +3584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2234325418836325234, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -515
+      value: -1189
       objectReference: {fileID: 0}
     - target: {fileID: 2234325418836325234, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3620,8 +3661,16 @@ PrefabInstance:
       value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 9021551167383789629, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
+      propertyPath: _mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9021551167383789629, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: _scaleValue
       value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9021551167383789629, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
+      propertyPath: _slideEndPoint
+      value: -505
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4035,6 +4084,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _scaleValue: 1.15
+  _slideEndPoint: 0
 --- !u!114 &2122411078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4284,6 +4334,14 @@ PrefabInstance:
     - target: {fileID: 5745728639740639204, guid: 17e220a5c8ed4a3459e8ddd4d2140a4f, type: 3}
       propertyPath: m_Name
       value: BackButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185311404772942291, guid: 17e220a5c8ed4a3459e8ddd4d2140a4f, type: 3}
+      propertyPath: _mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185311404772942291, guid: 17e220a5c8ed4a3459e8ddd4d2140a4f, type: 3}
+      propertyPath: _slideEndPoint
+      value: 718
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

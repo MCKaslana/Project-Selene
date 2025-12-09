@@ -91,7 +91,6 @@ public class SongManager : Singleton<SongManager>
 
         if (_musicSource.time >= _musicSource.clip.length - 0.1f)
         {
-            Debug.Log("Song Ended by time");
             StartCoroutine(BeginEndSongDelay());
         }
     }

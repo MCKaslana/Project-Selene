@@ -14,6 +14,7 @@ public class ButtonAnim : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [Header("Button Settings")]
     [SerializeField] private ButtonMode _mode;
     [SerializeField] private float _scaleValue = 1.15f;
+    [SerializeField] private float _slideEndPoint = 0f;
 
     private Vector2 _originalX;
     private Vector2 _originalY;
@@ -26,7 +27,7 @@ public class ButtonAnim : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     private void OnEnable()
     {
-        if (_mode == ButtonMode.Slidein) transform.DOLocalMoveX(0f, 0.7f);
+        if (_mode == ButtonMode.Slidein) transform.DOLocalMoveX(_slideEndPoint, 0.7f);
     }
 
     private void OnDisable()

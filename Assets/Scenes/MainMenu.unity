@@ -1600,6 +1600,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 1
   _scaleValue: 1.15
+  _slideEndPoint: 0
 --- !u!1 &469045371
 GameObject:
   m_ObjectHideFlags: 0
@@ -2400,6 +2401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _scaleValue: 1.15
+  _slideEndPoint: 0
 --- !u!114 &949127129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2776,6 +2778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _scaleValue: 1.15
+  _slideEndPoint: 0
 --- !u!1 &1211183072
 GameObject:
   m_ObjectHideFlags: 0
@@ -2926,6 +2929,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _scaleValue: 1.15
+  _slideEndPoint: 0
 --- !u!1 &1485803711
 GameObject:
   m_ObjectHideFlags: 0
@@ -3063,6 +3067,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 1
   _scaleValue: 1.15
+  _slideEndPoint: 0
 --- !u!114 &1485803717
 MonoBehaviour:
   m_ObjectHideFlags: 0
