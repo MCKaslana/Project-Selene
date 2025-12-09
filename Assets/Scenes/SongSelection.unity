@@ -1710,6 +1710,11 @@ MonoBehaviour:
   _song: {fileID: 0}
   _entryParent: {fileID: 2029349148}
   _entryPrefab: {fileID: 8020056439311317352, guid: 3444fa199a099a34580436a97e9b407f, type: 3}
+  slideDistance: 100
+  slideDuration: 0.3
+  fadeDuration: 0.3
+  typeSpeed: 0.02
+  delayBetweenEntries: 0.2
 --- !u!114 &1001704499
 MonoBehaviour:
   m_ObjectHideFlags: 0
