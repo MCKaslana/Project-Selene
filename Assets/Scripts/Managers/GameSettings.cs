@@ -5,6 +5,7 @@ public class GameSettings : Singleton<GameSettings>
     protected override bool IsPersistent => true;
     public DifficultyData CurrentGameDifficulty { get; private set; }
     public SongData CurrentSongData { get; private set; }
+    public float VolumeLevel { get; private set; } = 0.5f;
 
     public void SetGameDifficulty(DifficultyData difficulty)
     {
@@ -14,5 +15,10 @@ public class GameSettings : Singleton<GameSettings>
     public void SetSongData(SongData songData)
     {
         CurrentSongData = songData;
+    }
+
+    public void SetVolumeLevel(float volume)
+    {
+        VolumeLevel = Mathf.Clamp01(volume);
     }
 }

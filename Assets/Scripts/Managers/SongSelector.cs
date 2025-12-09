@@ -45,6 +45,7 @@ public class SongSelector : MonoBehaviour
         _previewSource.clip = song.MusicTrack;
 
         _previewSource.time = song.PreviewStartTime;
+        _previewSource.volume = GameSettings.Instance.VolumeLevel;
 
         _previewSource.Play();
 

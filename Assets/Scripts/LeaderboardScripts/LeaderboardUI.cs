@@ -25,8 +25,8 @@ public class LeaderboardUI : MonoBehaviour
         foreach (var e in data.entries)
         {
             var obj = Instantiate(_entryPrefab, _entryParent);
-            obj.GetComponent<TextMeshProUGUI>().text =
-                e.score + " | " + e.difficulty + " | " + e.accuracy + "%";
+            obj.GetComponentInChildren<TextMeshProUGUI>().text =
+                e.score + "    |    " + e.difficulty + "    |    " + "x " + e.combo + "    |    " + e.accuracy + "%";
         }
     }
 }

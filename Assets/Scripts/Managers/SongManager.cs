@@ -111,6 +111,7 @@ public class SongManager : Singleton<SongManager>
     {
         _songStartTime = Time.time;
         _musicSource.resource = _song;
+        _musicSource.volume = GameSettings.Instance.VolumeLevel;
         _musicSource.Play();
         _hasSongStarted = true;
     }

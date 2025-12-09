@@ -3,6 +3,8 @@ using System.IO;
 
 public class LeaderboardManager : Singleton<LeaderboardManager>
 {
+    protected override bool IsPersistent => false;
+
     private string GetPath(string songID)
     {
         return Path.Combine(Application.persistentDataPath, $"leaderboard_{songID}.json");
@@ -29,10 +31,10 @@ public class LeaderboardManager : Singleton<LeaderboardManager>
         File.WriteAllText(path, json);
     }
 
-    public void AddEntry(string songID, int score, string difficulty, int accuracy)
+    public void AddEntry(string songID, int score, string difficulty, int accuracy, int combo)
     {
         var data = Load(songID);
-        data.entries.Add(new LeaderboardEntry(score, difficulty, accuracy));
+        data.entries.Add(new LeaderboardEntry(score, difficulty, accuracy, combo));
         data.entries.Sort((a, b) => b.score.CompareTo(a.score));
 
         if (data.entries.Count > 15)

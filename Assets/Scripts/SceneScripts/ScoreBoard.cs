@@ -20,6 +20,7 @@ public class ScoreBoard : MonoBehaviour
     {
         gameObject.AddComponent<AudioSource>();
         _audioSource = GetComponent<AudioSource>();
+        _audioSource.volume = GameSettings.Instance.VolumeLevel;
 
         PlayVictorySound();
 

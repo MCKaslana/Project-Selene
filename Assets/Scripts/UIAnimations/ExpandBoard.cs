@@ -46,10 +46,10 @@ public class ExpandBoard : MonoBehaviour
     {
         yield return new WaitForSeconds(_animationDuration);
         _board.DOFade(1, _animationDuration);
-        StartCoroutine(StarObjectDisplay());
+        StartCoroutine(StartObjectDisplay());
     }
 
-    private IEnumerator StarObjectDisplay()
+    private IEnumerator StartObjectDisplay()
     {
         yield return new WaitForSeconds(_animationDuration);
 
