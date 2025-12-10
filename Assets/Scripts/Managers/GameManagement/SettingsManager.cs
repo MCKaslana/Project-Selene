@@ -14,6 +14,14 @@ public class SettingsManager : Singleton<SettingsManager>
 
     private void Start()
     {
+        float saved = GameSettings.Instance.VolumeLevel;
+        _volumeSlider.value = saved;
+        _volumeLabel.text = Mathf.RoundToInt(saved * 100) + "%";
+
+        float sfxSaved = GameSettings.Instance.SFXVolumeLevel;
+        _sfxVolumeSlider.value = sfxSaved;
+        _sfxVolumeLabel.text = Mathf.RoundToInt(sfxSaved * 100) + "%";
+
         _volumeSlider.onValueChanged.AddListener(OnVolumeChanged);
         _sfxVolumeSlider.onValueChanged.AddListener(OnSFXVolumeChanged);
 
