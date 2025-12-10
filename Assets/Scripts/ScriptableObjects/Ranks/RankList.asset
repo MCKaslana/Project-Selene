@@ -29,5 +29,5 @@ MonoBehaviour:
     minAccuracy: 65
     maxMisses: 25
   - rankName: D
-    minAccuracy: 50
-    maxMisses: 100
+    minAccuracy: 0
+    maxMisses: 999
