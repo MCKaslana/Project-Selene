@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd67a402f021c954594e20460b49f48b, type: 3}
   m_Name: ChromeHavoc
   m_EditorClassIdentifier: 
-  TimingData: {fileID: 0}
+  TimingData: {fileID: 4900000, guid: ce5c0f1e05c6b2d4aab016757560d470, type: 3}
   MusicTrack: {fileID: 8300000, guid: e362e99c1ac47f2449beb4734b8f0428, type: 3}
   PreviewStartTime: 30
   PreviewLength: 10
