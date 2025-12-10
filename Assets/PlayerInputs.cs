@@ -304,6 +304,24 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleSettings"",
+                    ""type"": ""Button"",
+                    ""id"": ""79d3f0e6-d6f2-4b9d-8bc5-94a5e5f6abf3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CloseSettings"",
+                    ""type"": ""Button"",
+                    ""id"": ""e4125c38-2785-4bcd-894c-d42b48c0ad87"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -724,6 +742,50 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""action"": ""TrackedDeviceOrientation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Button With One Modifier"",
+                    ""id"": ""0ddacc2f-cdee-4a1e-a822-b05fb95457b6"",
+                    ""path"": ""ButtonWithOneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleSettings"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Modifier"",
+                    ""id"": ""f299aefa-4dbd-48af-9d62-d3c4a0952ba4"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleSettings"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Button"",
+                    ""id"": ""15651855-a2a2-4a8e-99ea-b49332d2de95"",
+                    ""path"": ""<Keyboard>/o"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleSettings"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5734a58c-abd4-41f9-b6d6-ef58c17e7513"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CloseSettings"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -814,6 +876,8 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_UI_ScrollWheel = m_UI.FindAction("ScrollWheel", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        m_UI_ToggleSettings = m_UI.FindAction("ToggleSettings", throwIfNotFound: true);
+        m_UI_CloseSettings = m_UI.FindAction("CloseSettings", throwIfNotFound: true);
     }
 
     ~@PlayerInputs()
@@ -1001,6 +1065,8 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_ScrollWheel;
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
+    private readonly InputAction m_UI_ToggleSettings;
+    private readonly InputAction m_UI_CloseSettings;
     public struct UIActions
     {
         private @PlayerInputs m_Wrapper;
@@ -1015,6 +1081,8 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         public InputAction @ScrollWheel => m_Wrapper.m_UI_ScrollWheel;
         public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_TrackedDevicePosition;
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
+        public InputAction @ToggleSettings => m_Wrapper.m_UI_ToggleSettings;
+        public InputAction @CloseSettings => m_Wrapper.m_UI_CloseSettings;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1054,6 +1122,12 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @TrackedDeviceOrientation.started += instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.performed += instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.canceled += instance.OnTrackedDeviceOrientation;
+            @ToggleSettings.started += instance.OnToggleSettings;
+            @ToggleSettings.performed += instance.OnToggleSettings;
+            @ToggleSettings.canceled += instance.OnToggleSettings;
+            @CloseSettings.started += instance.OnCloseSettings;
+            @CloseSettings.performed += instance.OnCloseSettings;
+            @CloseSettings.canceled += instance.OnCloseSettings;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -1088,6 +1162,12 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @TrackedDeviceOrientation.started -= instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.performed -= instance.OnTrackedDeviceOrientation;
             @TrackedDeviceOrientation.canceled -= instance.OnTrackedDeviceOrientation;
+            @ToggleSettings.started -= instance.OnToggleSettings;
+            @ToggleSettings.performed -= instance.OnToggleSettings;
+            @ToggleSettings.canceled -= instance.OnToggleSettings;
+            @CloseSettings.started -= instance.OnCloseSettings;
+            @CloseSettings.performed -= instance.OnCloseSettings;
+            @CloseSettings.canceled -= instance.OnCloseSettings;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -1174,5 +1254,7 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         void OnScrollWheel(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+        void OnToggleSettings(InputAction.CallbackContext context);
+        void OnCloseSettings(InputAction.CallbackContext context);
     }
 }
