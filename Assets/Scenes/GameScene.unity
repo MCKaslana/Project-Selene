@@ -3037,6 +3037,7 @@ GameObject:
   - component: {fileID: 2012871031}
   - component: {fileID: 2012871030}
   - component: {fileID: 2012871033}
+  - component: {fileID: 2012871034}
   m_Layer: 0
   m_Name: Restart
   m_TagString: Untagged
@@ -3161,6 +3162,18 @@ MonoBehaviour:
   _mode: 0
   _scaleValue: 1.15
   _slideEndPoint: 0
+--- !u!114 &2012871034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012871028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1949e35c4161a7f40be64fb08607efbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2044384983
 GameObject:
   m_ObjectHideFlags: 0
@@ -3647,6 +3660,7 @@ GameObject:
   - component: {fileID: 271427551513122770}
   - component: {fileID: 8581214185110751124}
   - component: {fileID: 2457222420860122672}
+  - component: {fileID: 8581214185110751125}
   m_Layer: 0
   m_Name: Resume
   m_TagString: Untagged
@@ -3885,6 +3899,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8581214185110751125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2191220231146862289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa4aca33c935fa40abfd92036ec427c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _popupMenu: {fileID: 458878631}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
