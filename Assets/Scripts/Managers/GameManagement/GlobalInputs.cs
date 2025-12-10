@@ -30,6 +30,20 @@ public class GlobalInputs : Singleton<GlobalInputs>
 
     private void OnOpenSettings(InputAction.CallbackContext ctx)
     {
+        ToggleSettingsMenu();
+    }
+
+    private void OnCloseSettings(InputAction.CallbackContext ctx)
+    {
+        if (_settingsMenu.activeSelf)
+        {
+            _settingsMenu.SetActive(false);
+            _input.Player.Enable();
+        }
+    }
+
+    public void ToggleSettingsMenu()
+    {
         bool show = !_settingsMenu.activeSelf;
         _settingsMenu.SetActive(show);
 
@@ -39,15 +53,6 @@ public class GlobalInputs : Singleton<GlobalInputs>
         }
         else
         {
-            _input.Player.Enable();
-        }
-    }
-
-    private void OnCloseSettings(InputAction.CallbackContext ctx)
-    {
-        if (_settingsMenu.activeSelf)
-        {
-            _settingsMenu.SetActive(false);
             _input.Player.Enable();
         }
     }
