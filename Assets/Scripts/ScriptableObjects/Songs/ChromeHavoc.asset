@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd67a402f021c954594e20460b49f48b, type: 3}
+  m_Name: ChromeHavoc
+  m_EditorClassIdentifier: 
+  TimingData: {fileID: 0}
+  MusicTrack: {fileID: 8300000, guid: e362e99c1ac47f2449beb4734b8f0428, type: 3}
+  PreviewStartTime: 30
+  PreviewLength: 10
+  SongID: 004
+  SongName: ChromeHavoc
