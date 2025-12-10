@@ -11,8 +11,9 @@ public class GameSettings : Singleton<GameSettings>
     private const string VolumeKey = "VOLUME_KEY";
     private const string SFXVolumeKey = "SFXVOLUME_KEY";
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
         VolumeLevel = PlayerPrefs.GetFloat(VolumeKey, 0.5f);
         SFXVolumeLevel = PlayerPrefs.GetFloat(SFXVolumeKey, 0.5f);
     }
