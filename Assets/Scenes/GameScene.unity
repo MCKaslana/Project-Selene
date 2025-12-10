@@ -3366,7 +3366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentSong: {fileID: 11400000, guid: 7356031ce559f57459d7f6409891b8a7, type: 2}
-  _songOffset: -0.1
+  _songOffset: 0
   _difficulty: {fileID: 11400000, guid: b5a8e4269f2bb0647967570f1914f72f, type: 2}
   _noteSpawner: {fileID: 2044384988}
   _popupPrefab: {fileID: 5089844595146094378, guid: 6cf2082b6b2baba46bd8f4e41174f9f2, type: 3}

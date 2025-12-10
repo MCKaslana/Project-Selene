@@ -24,8 +24,6 @@ public class SettingsManager : Singleton<SettingsManager>
 
         _volumeSlider.onValueChanged.AddListener(OnVolumeChanged);
         _sfxVolumeSlider.onValueChanged.AddListener(OnSFXVolumeChanged);
-
-        GameSettings.Instance.SetVolumeLevel(_volumeSlider.value);
     }
 
     public void OnVolumeChanged(float value)
