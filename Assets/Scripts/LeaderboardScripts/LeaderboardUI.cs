@@ -51,7 +51,7 @@ public class LeaderboardUI : MonoBehaviour
             var cg = obj.AddComponent<CanvasGroup>();
 
             string fullText =
-                e.score + "    |    " + e.difficulty + "    |    " + "x " + e.combo + "    |    " + e.accuracy + "%";
+                "* " + e.rank + " *" + e.score + "    |    " + e.difficulty + "    |    " + "x " + e.combo + "    |    " + e.accuracy + "%";
 
             cg.alpha = 0f;
 

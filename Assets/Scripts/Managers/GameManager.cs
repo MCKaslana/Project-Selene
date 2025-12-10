@@ -1,11 +1,12 @@
 using UnityEngine;
-using System.Collections.Generic;
-using System;
 using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
     protected override bool IsPersistent => false;
+
+    [Header("GameRanks")]
+    public RankData rankData;
 
     private int _finalScore;
     private int _finalCombo;
@@ -39,9 +40,18 @@ public class GameManager : Singleton<GameManager>
         var diff = GameSettings.Instance.CurrentGameDifficulty.difficultyName;
         var song = GameSettings.Instance.CurrentSongData;
 
-        LeaderboardManager.Instance.AddEntry(song.SongID, p.Score, diff, p.Accuracy, p.Combo);
+        string rank = GetRank(p.Accuracy, p.MissCount);
+
+        LeaderboardManager.Instance.AddEntry(song.SongID, rank, p.Score, diff, p.Accuracy, p.Combo);
 
         SceneManager.LoadScene("ScoreScreen");
+    }
+
+    public string GetRank(int accuracy, int missCount)
+    {
+        string rank = 
+            RankCalculator.CalculateRank(rankData, accuracy, missCount);
+        return rank;
     }
 
     public void GetPlayerData()

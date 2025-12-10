@@ -3,6 +3,8 @@ using UnityEngine;
 public class PlayerData : Singleton<PlayerData>
 {
     [Header("Player Session Data")]
+
+    public string Rank { get; private set; }
     public int Score { get; private set; }
     public int Combo { get; private set; }
     public int MaxCombo { get; private set; }
@@ -27,5 +29,7 @@ public class PlayerData : Singleton<PlayerData>
         Greats = gm.GetGreatHits();
         Goods = gm.GetGoodHits();
         Accuracy = gm.GetAccuracy();
+
+        Rank = gm.GetRank(Accuracy, MissCount);
     }
 }

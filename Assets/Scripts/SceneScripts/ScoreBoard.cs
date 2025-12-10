@@ -8,6 +8,8 @@ public class ScoreBoard : MonoBehaviour
     [SerializeField] private AudioClip _victorySound;
 
     [Header("UI References")]
+    [SerializeField] private TextMeshProUGUI _rankTitle;
+
     [SerializeField] private TextMeshProUGUI _scoreText;
     [SerializeField] private TextMeshProUGUI _perfectValue;
     [SerializeField] private TextMeshProUGUI _greatValue;
@@ -31,6 +33,8 @@ public class ScoreBoard : MonoBehaviour
             Debug.LogWarning("[ScoreBoard] No PlayerDataManager found.");
             return;
         }
+
+        _rankTitle.text = data.Rank;
 
         _scoreText.text = "Score: " + data.Score;
         _perfectValue.text = "Perfect: " + data.Perfects;
