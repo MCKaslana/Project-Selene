@@ -1140,8 +1140,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4294961743
+  m_fontColor: {r: 0.30980393, g: 0.91764706, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1717,7 +1717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2234325418836325234, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 215
+      value: 1351
       objectReference: {fileID: 0}
     - target: {fileID: 2234325418836325234, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1762,6 +1762,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4702871851045331164, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1188487394}
+    - targetCorrespondingSourceObject: {fileID: 4702871851045331164, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1188487395}
   m_SourcePrefab: {fileID: 100100000, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
 --- !u!224 &1188487392 stripped
 RectTransform:
@@ -1788,6 +1791,21 @@ MonoBehaviour:
   transitionType: 0
   sceneIndex: 1
   sceneName: 
+--- !u!114 &1188487395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188487393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25f981bf96847b74f9f2df474efbc033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mode: 1
+  _scaleValue: 1.15
+  _slideEndPoint: 215
 --- !u!1 &1191707911
 GameObject:
   m_ObjectHideFlags: 0
@@ -2144,7 +2162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2234325418836325234, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 673
+      value: 1809
       objectReference: {fileID: 0}
     - target: {fileID: 2234325418836325234, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2189,6 +2207,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4702871851045331164, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1570343693}
+    - targetCorrespondingSourceObject: {fileID: 4702871851045331164, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1570343694}
   m_SourcePrefab: {fileID: 100100000, guid: f319a3ff487d6f647a922f9f38918338, type: 3}
 --- !u!224 &1570343691 stripped
 RectTransform:
@@ -2215,6 +2236,21 @@ MonoBehaviour:
   transitionType: 0
   sceneIndex: 2
   sceneName: 
+--- !u!114 &1570343694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570343692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25f981bf96847b74f9f2df474efbc033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mode: 1
+  _scaleValue: 1.15
+  _slideEndPoint: 673
 --- !u!1 &1800311882
 GameObject:
   m_ObjectHideFlags: 0
