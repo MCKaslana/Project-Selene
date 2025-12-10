@@ -41,11 +41,13 @@ public class SettingsManager : Singleton<SettingsManager>
     {
         GameSettings.Instance.SetVolumeLevel(value);
         _volumeLabel.text = Mathf.RoundToInt(value * 100) + "%";
+        AudioManager.Instance?.ApplyVolume();
     }
 
     public void OnSFXVolumeChanged(float value)
     {
         GameSettings.Instance.SetSFXVolumeLevel(value);
         _sfxVolumeLabel.text = Mathf.RoundToInt(value * 100) + "%";
+        AudioManager.Instance?.ApplyVolume();
     }
 }
