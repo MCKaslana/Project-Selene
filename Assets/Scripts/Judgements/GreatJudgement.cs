@@ -11,5 +11,6 @@ public class GreatJudgement : IJudgement
         manager.IncreaseScore(scoreToAdd);
         manager.IncreaseCombo();
         manager.ShowPopup("Great!", Color.cyan);
+        SFXPlayer.Instance.PlayHit();
     }
 }

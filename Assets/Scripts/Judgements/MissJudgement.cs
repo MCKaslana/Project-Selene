@@ -11,5 +11,6 @@ public class MissJudgement : IJudgement
         manager.ResetCombo();
         manager.IncreaseMissCount();
         manager.ShowPopup("Miss!", Color.red);
+        SFXPlayer.Instance.PlayMiss();
     }
 }

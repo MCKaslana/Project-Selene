@@ -11,5 +11,6 @@ public class PerfectJudgement : IJudgement
         manager.IncreaseScore(scoreToAdd);
         manager.IncreaseCombo();
         manager.ShowPopup("Perfect!", Color.yellow);
+        SFXPlayer.Instance.PlayHit();
     }
 }
